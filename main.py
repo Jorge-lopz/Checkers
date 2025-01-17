@@ -252,7 +252,6 @@ def main():
     red_checkers = [(row, col) for row in range(0, 2) for col in range((row + 1) % 2, BOARD_SIZE, 2)]
     black_checkers = [(row, col) for row in range(6, 8) for col in range((row + 1) % 2, BOARD_SIZE, 2)]
 
-
     glEnable(GL_DEPTH_TEST)
     glDisable(GL_CULL_FACE)
 
