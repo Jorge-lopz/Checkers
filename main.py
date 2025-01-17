@@ -19,6 +19,62 @@ RED = (0.7, 0.0, 0.0)  # Rojo para las piezas de damas
 BASE_COLOR = (0.3, 0.2, 0.1)  # Color del grosor del tablero
 BORDER_COLOR = (0.3, 0.2, 0.1)  # Color del borde
 
+# Pantalla de carga
+def loading_screen_with_image():
+    pygame.init()
+    display = (800, 600)
+    screen = pygame.display.set_mode(display)
+    clock = pygame.time.Clock()
+    loading = True
+    progress = 0
+
+    # Cargar la imagen
+    logo = pygame.image.load("assets/logo.png")
+    logo = pygame.transform.scale(logo, (200, 200))  # Ajustar el tamaño de la imagen si es necesario
+    logo_rect = logo.get_rect(center=(display[0] // 2, display[1] // 2 - 50))
+
+    while loading:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        screen.fill((0, 0, 0))  # Fondo negro
+
+        # Mostrar la imagen centrada
+        screen.blit(logo, logo_rect)
+
+        # Dibujar la barra de carga con esquinas redondeadas
+        bar_width = display[0]  # Ancho total de la pantalla
+        bar_height = 15  # Altura de la barra
+        bar_x = 0  # Iniciar en el borde izquierdo
+        bar_y = display[1] - bar_height - 10  # Situar cerca del borde inferior con un margen de 10px
+        border_radius = 5  # Radio para esquinas redondeadas
+
+        # Fondo de la barra
+        # Fondo marron 193, 188, 174
+        pygame.draw.rect(screen, (0, 0, 0), (bar_x, bar_y, bar_width, bar_height), border_radius=border_radius)
+
+        # Progreso de la barra
+        # rojo - 196, 83, 72
+        # marron - 109, 84, 77
+        pygame.draw.rect(
+            screen,
+            (196, 83, 72),
+            (bar_x, bar_y, progress * bar_width // 100, bar_height),
+            border_radius=border_radius,
+        )
+
+        pygame.display.flip()
+        clock.tick(30)
+
+        progress += 1  # Incrementar progreso
+        if progress > 100:  # Finalizar cuando llega al 100%
+            loading = False
+
+    # Esperar un momento antes de continuar
+    pygame.time.wait(300)
+
 # Crear el tablero
 def create_board():
     board = []
@@ -176,8 +232,13 @@ def draw_board_base():
     glVertex3f(BOARD_SIZE + BORDER_SIZE, -THICKNESS, BOARD_SIZE + BORDER_SIZE)
     glEnd()
 
+# Restauracion suave
+def lerp(current, target, t):
+    return current + (target - current) * t
+
 # Configuración principal
 def main():
+    loading_screen_with_image()
     pygame.init()
     display = (800, 600)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
@@ -192,10 +253,11 @@ def main():
     black_checkers = [(row, col) for row in range(6, 8) for col in range((row + 1) % 2, BOARD_SIZE, 2)]
 
 
-    glEnable(GL_DEPTH_TEST)  # Activar prueba de profundidad para manejar correctamente las caras
-    glDisable(GL_CULL_FACE)  # Desactivar el culling para que se vean todas las caras
+    glEnable(GL_DEPTH_TEST)
+    glDisable(GL_CULL_FACE)
 
-    rotate_x, rotate_y = 35, 45
+    rotate_x, rotate_y = 90, 0
+    target_rotate_x, target_rotate_y = rotate_x, rotate_y
     mouse_down = False
     last_mouse_pos = None
 
@@ -213,14 +275,23 @@ def main():
             if event.type == MOUSEBUTTONUP:
                 if event.button == 1:
                     mouse_down = False
+                    target_rotate_x, target_rotate_y = 90, 0
 
             if event.type == MOUSEMOTION and mouse_down:
                 current_mouse_pos = pygame.mouse.get_pos()
                 dx = current_mouse_pos[0] - last_mouse_pos[0]
                 dy = current_mouse_pos[1] - last_mouse_pos[1]
+
                 rotate_x += dy * 0.5
+                rotate_x = max(-90, min(90, rotate_x))
                 rotate_y += dx * 0.5
+
                 last_mouse_pos = current_mouse_pos
+                target_rotate_x, target_rotate_y = rotate_x, rotate_y
+
+        if not mouse_down:
+            rotate_x = lerp(rotate_x, target_rotate_x, 0.1)
+            rotate_y = lerp(rotate_y, target_rotate_y, 0.1)
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
