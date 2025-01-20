@@ -1,9 +1,20 @@
+# --------------------------------------------------------------------------- #
+#                                                                             #
+#     menu.py                                             +#######+           #
+#                                                       +###########+         #
+#     PROJECT: Checkers                       ·''''''''·#############         #
+#     AUTHOR(S): Luis                        '''''''''''+###########+         #
+#                                            '''''''''''' +#######+           #
+#     CREATED DATE: 17/01/2025               ''''''''''''                     #
+#     LAST UPDATE: 18/01/2025                 `''''''''´                      #
+#                                                                             #
+# --------------------------------------------------------------------------- #
+
 # Importar las librerías necesarias
 import pygame
 import random
 from pygame.locals import *  # Importar constantes de eventos y teclas
 import subprocess  # Para ejecutar el archivo 'main.py'
-from time import sleep  # Para pausas en el código si es necesario
 
 # Dimensiones de la ventana de juego
 DISPLAY_WIDTH = 800
