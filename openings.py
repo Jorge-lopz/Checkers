@@ -37,11 +37,8 @@ def getNextMove(trace: str) -> list[tuple[str, int]] | None:
     :returns: The next predefined move [(from_r, from_c), (to_r, to_c)] or ``None`` if opening is not valid or finished.
     """
     opening = matchOpening(trace)
-    print(opening)
     if opening is None or len(trace) + (5 if trace[-1] != "-" else 4) >= len(opening):
         return None
     start = len(trace) + (1 if trace[-1] != "-" else 0)
     move = opening[start:start + 4]
     return [(move[0], int(move[1])), (move[2], int(move[3]))]
-
-print(getNextMove("d2c3-a7b6;f2e3"))  # TODO - Confirm DB saving format

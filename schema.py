@@ -16,7 +16,6 @@ Database schema containing all the used table and column names from the DB
 
 # Openings table:
 
-# SAVED OPENINGS FORMAT = a3 TODO
 TABLE_OPENINGS = "openings"
 OPENINGS_TRACE = "trace"
 
