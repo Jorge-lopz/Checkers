@@ -32,7 +32,7 @@ def loading_screen_with_image():
     progress = 0
 
     # Cargar la imagen
-    logo = pygame.image.load("logo3.png")
+    logo = pygame.image.load("../assets/logo3.png")
     logo = pygame.transform.scale(logo, (200, 200))  # Ajustar el tamaño de la imagen si es necesario
     logo_rect = logo.get_rect(center=(display[0] // 2, display[1] // 2 - 50))
 
