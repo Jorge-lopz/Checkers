@@ -4,6 +4,9 @@ G_TABLERO = []
 G_POSICIONES_JUGADOR = []
 G_POSICIONES_IA = []
 
+IA = (2, 4)
+JUGADOR = (1, 3)
+
 G_COLUMNAS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
 # Representación del tablero
@@ -79,7 +82,7 @@ def movimiento_valido(tablero, origen, destino):
     dx, dy = abs(x2 - x1), abs(y2 - y1)
 
     # Si es una reina, puede moverse hacia atrás (jugador 1 tiene reina en valor 3 y jugador 2 en valor 4)
-    if tablero[x1][y1] in [3, 4]:  # Reina
+    if tablero[x1][y1] in (3, 4):  # Reina
         if dx == dy:  # Las reinas se mueven en diagonal, sin importar la dirección
             return True
 
@@ -106,7 +109,7 @@ def convertir_a_reina(tablero, x, y):
     if tablero[x][y] == 1 and x == 7:  # Jugador 1 llega a la fila 7
         tablero[x][y] = 3  # Marca la pieza como reina
     elif tablero[x][y] == 2 and x == 0:  # Jugador 2 llega a la fila 0
-        tablero[x][y] = 4  # Marca la pieza como reina
+        tablero[x][y] = 4  # Marca la pieza como reina-
 
 # Generar movimientos válidos
 # TODO - Generar movimientos válidos, teniendo en cuenta si es una reina
@@ -182,35 +185,43 @@ def minimax(tablero, profundidad, alfa, beta, maximizando):
                 break
         return min_eval, mejor_movimiento
 
-# Filtrar movimientos de captura
-def obtener_capturas(tablero, jugador):  # También funciona con reinas
+def es_valido(tablero, destino):
+    x, y = destino
+    return x in range(0, 8) and y in range(0, 8) and tablero[x][y] == 0  # Dentro del tablero y a una casilla vacía
 
-    fichas = G_POSICIONES_JUGADOR if jugador in (1, 3) else G_POSICIONES_IA
-    opciones_x = []  # Vertical (el horizontal siempre es -1 o 1)
+def es_captura(tablero, turno, destino, vector) -> bool:
+    # La posición anterior (según el vector de movimiento) debe ser del oponente
+    return tablero[destino[0] - vector[0]][destino[1] - vector[1]] in JUGADOR if turno == IA else IA
+
+# Filtrar movimientos de captura
+
+def obtener_capturas(tablero, turno):  # Jugador = IA / JUGADOR
+
+    # X es fila
+
+    fichas = G_POSICIONES_JUGADOR if turno == JUGADOR else G_POSICIONES_IA
+    opciones_x = [1] if turno == JUGADOR else [-1]  # Vertical (el horizontal siempre es -1 o 1)
     longitud = (2, 2)  # Min - max
-    match jugador:
-        case 1:
-            opciones_x = [1]
-            longitud = (2, 2)
-        case 2:
-            opciones_x = [-1]
-            longitud = (2, 2)
-        case 3, 4:
-            opciones_x = [-1, 1]
-            longitud = (2, 7)
 
     capturas = []
 
-    for x, y in fichas:
-        x = G_COLUMNAS.index(x)
+    for x_letra, y, reina in fichas:
+        if reina:
+            longitud = (2, 7)  # Min - max
+            opciones_x = [1, -1]
+
+        x = G_COLUMNAS.index(x_letra)
+        print(x_letra, y, tablero[x][y])
         for dx in opciones_x:
             for dy in [-1, 1]:
-                longitud_actual = 2
+                longitud_actual = longitud[0]
                 while longitud_actual in range(longitud[0], longitud[1] + 1):  # Entre min y max longitud
                     destino = (x + (dx * longitud_actual), y + (dy * longitud_actual))
-                    if movimiento_valido(tablero, (x, y), destino):
-                        capturas.append(((x, y), destino))
+                    if es_valido(tablero, destino) and es_captura(tablero, turno, destino, (dx, dy)):
+                        capturas.append(((y, x), destino))
                     longitud_actual += 1
+
+    # TODO - Si se detectan varias capturas, ver si alguna de ellas lleva a otra
     return capturas
 
 # Juego principal modificado
