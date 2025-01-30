@@ -97,14 +97,12 @@ class Piece:
         if (self.x == 0 and not self.player.opponent) or (self.x == 7 and self.player.opponent):
             self.set_queen()
             
-def check_bounds(x: int, y: int)-> bool:
+def check_bounds(x: int, y: int) -> bool:
     """
-    Verificar que las coordenadas estan dentro del tablero. 
-    Retorna True si esta dentro y False si esta fuera
+    Check if coords are inside the board. 
+    Returns True if inside the board, False otherwise
     """
     return 0 <= x < 8 and 0 <= y < 8 
-    
-    
     
                  
 # TODO - Jesús - FUNCTION TO CHECK OFF-BOUNDS -> check_bounds()       
@@ -112,15 +110,15 @@ def check_bounds(x: int, y: int)-> bool:
 # TODO - Hanan - TURN VISUAL COORDS INTO LOGIC COORDS AND VICE VERSA -> to_logic(), to_visual()
 
 g_board = [
-    #A  B  C  D  E  F  G  H  (índice) (visual abs(índice - 7))
-    [0, 2, 0, 2, 0, 2, 0, 2], # 0   ->   7 
-    [2, 0, 2, 0, 2, 0, 2, 0], # 1   ->   6
-    [0, 0, 0, 0, 0, 0, 0, 0], # 2   ->   5
-    [0, 0, 0, 0, 0, 0, 0, 0], # 3   ->   4
-    [0, 0, 0, 0, 0, 0, 0, 0], # 4   ->   3
-    [0, 0, 0, 0, 0, 0, 0, 0], # 5   ->   2
-    [0, 1, 0, 1, 0, 1, 0, 1], # 6   ->   1
-    [1, 0, 1, 0, 1, 0, 1, 0]  # 7   ->   0
+    #A  B  C  D  E  F  G  H   # INDEX     VISUAL [abs(index - 7)]
+    [0, 2, 0, 2, 0, 2, 0, 2], #   0    ->   7 
+    [2, 0, 2, 0, 2, 0, 2, 0], #   1    ->   6
+    [0, 0, 0, 0, 0, 0, 0, 0], #   2    ->   5
+    [0, 0, 0, 0, 0, 0, 0, 0], #   3    ->   4
+    [0, 0, 0, 0, 0, 0, 0, 0], #   4    ->   3
+    [0, 0, 0, 0, 0, 0, 0, 0], #   5    ->   2
+    [0, 1, 0, 1, 0, 1, 0, 1], #   6    ->   1
+    [1, 0, 1, 0, 1, 0, 1, 0]  #   7    ->   0
 ]
 
 G_PLAYERS = []
