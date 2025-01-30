@@ -104,8 +104,6 @@ def check_bounds(x: int, y: int) -> bool:
     """
     return 0 <= x < 8 and 0 <= y < 8 
     
-                 
-# TODO - Jesús - FUNCTION TO CHECK OFF-BOUNDS -> check_bounds()       
 # TODO - Isra - FUNCTION TO CHECK EMPTY CELL () -> empty_cell()
 # TODO - Hanan - TURN VISUAL COORDS INTO LOGIC COORDS AND VICE VERSA -> to_logic(), to_visual()
 

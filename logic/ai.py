@@ -9,3 +9,6 @@
 #     LAST UPDATE: 30/01/2025                 `''''''''´                      #
 #                                                                             #
 # --------------------------------------------------------------------------- #
+
+# TODO - Min max algorithm
+#        - Puntuation check for the minmax algorithm
