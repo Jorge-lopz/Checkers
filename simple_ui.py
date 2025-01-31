@@ -18,7 +18,7 @@ CROWN_COLOR = (255, 255, 255)
 # Inicializar Pygame
 pygame.init()
 screen = pygame.display.set_mode((WIDTH + MARGIN, HEIGHT + MARGIN))
-pygame.display.set_caption("Tablero de Damas")
+pygame.display.set_caption("Checkers")
 font = pygame.font.SysFont(None, 30)
 
 selected_piece = None
