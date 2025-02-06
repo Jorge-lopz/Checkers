@@ -1,25 +1,7 @@
 
-# --------------------------------------------------------------------------- #
-#                                                                             #
-#     game.py                                             +#######+           #
-#                                                       +###########+         #
-#     PROJECT: Checkers                       ·''''''''·#############         #
-#     AUTHOR(S): IA Team                     '''''''''''+###########+         #
-#                                            '''''''''''' +#######+           #
-#     CREATED DATE: 30/01/2025               ''''''''''''                     #
-#     LAST UPDATE: 30/01/2025                 `''''''''´                      #
-#                                                                             #
-# --------------------------------------------------------------------------- #
-
-# TODO - Min max algorithm
-#        - Puntuation check for the minmax algorithm
-
-import math
-import time
-from copy import deepcopy
-
+"""
 def evaluar_estado(estado, jugador_actual, es_final, ganador, heuristica, todos_los_jugadores):
-    """
+    
     Evalúa el estado del juego y devuelve un valor numérico que indica la ventaja para el jugador_actual.
     :param estado: Estado actual del juego.
     :param jugador_actual: Jugador para el cual se evalúa el estado.
@@ -28,7 +10,7 @@ def evaluar_estado(estado, jugador_actual, es_final, ganador, heuristica, todos_
     :param heuristica: Función heurística que estima la ventaja del estado.
     :param todos_los_jugadores: Lista de todos los jugadores.
     :return: math.inf si jugador_actual gana, -math.inf si pierde, 0 en empate, o heurística si el juego sigue.
-    """
+   
     if es_final(estado):
         for jugador in todos_los_jugadores:
             if ganador(estado, jugador):
@@ -112,3 +94,4 @@ def ejecuta_minimax(estado, aplicar_movimiento, obtener_movimientos, es_estado_f
         print("Número de estados evaluados:", estadosEvaluados)
     
     return mov
+"""
