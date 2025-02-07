@@ -21,13 +21,12 @@ init(autoreset=True)
 
 class Player:
 
-    pieces = []
-
     def __init__(self, opponent: bool, ia: bool = False):
         if ia and not opponent:
             raise Exception("IA has to be opponent")
         self.opponent: bool = opponent
         self.ia: bool = ia
+        self.pieces = []
 
         if opponent:
             self.pieces = [
@@ -93,9 +92,10 @@ class Piece:
                     if not check_bounds(*destiny): break
                     if empty_cell(*destiny, board): 
                         # Check if it is an actual catch
-                        catch_cell = int(board[destiny[0] - 1][destiny[1] - 1])
-                        if catch_cell != 0 and catch_cell % 2 == (0 if not self.player.opponent else 1): # Uses odd or even operations to check piece owner (1-3 / 2-4)
-                            catches.append((destiny, (destiny[0] - 1, destiny[1] - 1))) # Appends both the destiny position and the caught piece position
+                        catch_cell = (destiny[0] - 1 * dx, destiny[1] - 1 * dy)
+                        catch_cell_piece = int(board[catch_cell[0]][catch_cell[1]])
+                        if catch_cell_piece != 0 and catch_cell_piece % 2 == (0 if not self.player.opponent else 1): # Uses odd or even operations to check piece owner (1-3 / 2-4)
+                            catches.append((destiny, catch_cell)) # Appends both the destiny position and the caught piece position
                         break
                     current_length += 1
 
@@ -116,8 +116,8 @@ class Piece:
                     destiny = (self.x + dx * current_length, self.y + dy * current_length)
                     # CHECK BOUNDS AND EMPTY
                     if not check_bounds(*destiny): break 
-                    if empty_cell(*destiny, board):  
-                        moves.append(destiny)
+                    if not empty_cell(*destiny, board): break
+                    moves.append(destiny)
                     current_length += 1
 
         return moves if len(moves) > 0 else None
@@ -137,14 +137,15 @@ class Piece:
         # Pieces
         self.x, self.y = destiny
         if catch:
-            self.player.pieces.remove(Piece(self.player, catch[0], catch[1]))
+            for piece in self.player.pieces:
+                if (piece.x, piece.y) == catch:
+                    del piece
 
         # Check if it's a queen after moving
         if (self.x == 0 and not self.player.opponent) or (self.x == 7 and self.player.opponent):
             self.set_queen()
    
 # CHECKS #
-
 def check_bounds(x: int, y: int) -> bool:
     """
     Check if coords are inside the board. 
@@ -206,15 +207,14 @@ DEPTH_LIMIT = 1
 
 class Node:
 
-    children = []
-
-    def __init__(self, board, last_move, depth, pieces_player: list, pieces_opponent: list):
-        # TODO - Also needs to receive an array of player and oponnents pieces, that will then be modified on every nodo (after every movement)
+    def __init__(self, board, last_move, last_catch, depth, pieces_player: list, pieces_opponent: list):
         self.board = board
         self.last_move = last_move
+        self.last_catch = last_catch
         self.depth = depth
         self.pieces_player = deepcopy(pieces_player)
         self.pieces_opponent = deepcopy(pieces_opponent)
+        self.children = []
         
         # If depth is DEPTH_LIMIT, it is a leaf node (and dooesn't call the get_children funtion)
         if depth < DEPTH_LIMIT:
@@ -248,7 +248,7 @@ class Node:
         # Devuelve el diccionario o None si no hay movimientos
         return moves if moves !=  {} else None  # [(x, y), ...]
 
-    def node_move(self, origin: (int), destiny: (int), capture: (int) = None):
+    def create_node(self, origin: (int), destiny: (int), capture: (int) = None):
 
         # Modify the board
         new_board = deepcopy(self.board)
@@ -274,32 +274,30 @@ class Node:
             if capture and (piece.x, piece.y) == capture:
                 del piece
                 capture = None
-        return Node(new_board, [origin, destiny], self.depth + 1, pieces_player, pieces_opponent) # Create a new node
+        return Node(new_board, (origin, destiny), capture, self.depth + 1, pieces_player, pieces_opponent) # Create a new node
 
     def get_children(self):
-        children = self.get_catches()
-        print(children)
-        if children == None: # If no catches, call moves
-            children = self.get_moves()
-            for origin, moves in children.items():
+        childs = self.get_catches()
+        if childs == None: # If no catches, call moves
+            childs = self.get_moves()
+            for origin, moves in childs.items():
                 for move in moves:
-                    self.children.append(self.node_move(origin, move))
+                    self.children.append(self.create_node(origin, move))
         else:
-            for origin, catches in children.items():
+            for origin, catches in childs.items():
                 for catch in catches:
-                    self.children.append(self.node_move(origin, catch[0], catch[1]))
+                    self.children.append(self.create_node(origin, catch[0], catch[1]))
 
 g_tree: Node
 
 def ai():
     global g_tree
-    g_tree = Node(g_board, None, 0, G_PLAYERS["player"].pieces, G_PLAYERS["opponent"].pieces)
+    g_tree = Node(g_board, None, None, 0, G_PLAYERS["player"].pieces, G_PLAYERS["opponent"].pieces)
     return minimax()
 
 def minimax():
     import random
-    move = g_tree.children[random.randint(0, len(g_tree.children) - 1)].last_move
-    return move
+    return g_tree.children[random.randint(0, len(g_tree.children) - 1)]
 
 def evaluate_score():
     player_score = 0  #puntos totales del jugador
@@ -422,11 +420,10 @@ def player_turn():
 
 def ai_turn():
     move = ai()
-    print("AI:", move)
-    origin, destiny = move
+    origin, destiny = move.last_move
     for piece in G_PLAYERS["opponent"].pieces:
         if (piece.x, piece.y) == (origin[0], origin[1]):
-            piece.move((destiny[0], destiny[1]))
+            piece.move((destiny[0], destiny[1]), move.last_catch)
             return True
     
     print("No piece found")
