@@ -10,7 +10,6 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
-import ai
 from copy import deepcopy
 from colorama import init, Fore
 
@@ -411,6 +410,19 @@ def player_turn():
     originY, originX = parse_coordinates(input("Origin: ").upper())
     for piece in G_PLAYERS["player"].pieces:
         if (piece.x, piece.y) == (originX, originY):
+            """ options = piece.get_catches(g_board)
+            if options:
+                print("Catches:")
+                for option in options:
+                    print(f"{option[0]}{option[1]}")
+            else:
+                moves = piece.get_moves(g_board)
+                if moves:
+                    for move in moves:
+                        print(f"{move[0]}{move[1]}")
+                else:
+                    print("No moves available")
+                    exit(0) """
             destinyY, destinyX = parse_coordinates(input("Destiny: ").upper())
             piece.move((destinyX, destinyY))
             return True
