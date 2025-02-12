@@ -14,7 +14,7 @@
 Includes all necessary functions to use the default openings on the game.
 """
 
-from db.db import getOpenings
+from db import getOpenings
 
 G_OPENINGS = getOpenings()  # g_ prefix as it is a global variable
 
