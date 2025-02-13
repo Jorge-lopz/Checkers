@@ -298,7 +298,8 @@ def minimax():
     import random
     return g_tree.children[random.randint(0, len(g_tree.children) - 1)]
 
-def evaluate_score():
+#evaluar el estado actual del tablero
+def evaluate_score(node: Node):
     player_score = 0  #puntos totales del jugador
     opponent_score = 0  #puntos totales de oponente
 
@@ -309,7 +310,7 @@ def evaluate_score():
 
 
     # Evaluar las piezas del jugador
-    for piece in G_PLAYERS["player"].pieces:
+    for piece in node.pieces_player:
         if piece.queen:  
             player_score += queen_value
         else: 
@@ -322,7 +323,7 @@ def evaluate_score():
 
 
     
-    for piece in G_PLAYERS["opponent"].pieces:
+    for piece in node.pieces_opponent:
         if piece.queen:
             opponent_score += queen_value
         else: 
@@ -335,17 +336,17 @@ def evaluate_score():
 
 
     #aqui sumamos puntos si el jugador  captura pieza
-    for piece in G_PLAYERS["player"].pieces:
+    for piece in node.pieces_player:
 
-        catches = piece.get_catches(g_board)  #ver cuantas capturas puede hacer
+        catches = piece.get_catches(node.board)  #ver cuantas capturas puede hacer
 
         player_score += len(catches) * 2  #sumamos la cantidad de capturas por  2 puntos
 
 
 
     
-    for piece in G_PLAYERS["opponent"].pieces:
-        catches = piece.get_catches(g_board)  
+    for piece in node.pieces_opponent:
+        catches = piece.get_catches(node.board)  
 
         opponent_score += len(catches) * 2  
 
@@ -354,19 +355,23 @@ def evaluate_score():
     #aqui devolvemos la deferencia entre el jugador y el oponente
     return player_score - opponent_score
 
+
 def evaluate_position(piece, player=True):
 
-    x, y = piece.x, piece.y  # Coger la posicion de la pieza
+    x, y = piece.x, piece.y  #cogemos la posicion de la pieza
 
     cell_value = 0 
 
-    # Evaluar la fila donde una pieza se convierte en riena
+    #aqui evaluamos la fila donde una pieza se convierte en riena
     if player:
         cell_value += ((10 - y) / 10) * 10 
           #cuanto mas adelante (fila 0), gana mas puntos
     else:
         cell_value -= (y / 10) * 10
          #cuanto mas atras (fila 7), pierde mas puntos
+
+
+
 
 
     # Evaluar cercanía a los bordes laterales
@@ -376,7 +381,8 @@ def evaluate_position(piece, player=True):
     else:
         cell_value -= side_edge_value #restamos si es el oponente
 
-    return cell_value  # Devolver el valor calculado
+    return cell_value  #devolver el valor calculado
+
 
     """
     explicacion de la formula :
