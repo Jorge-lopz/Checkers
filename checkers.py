@@ -20,6 +20,8 @@ from GUI.loading_screen import loading_screen_with_image
 
 from DB.openings import getNextMove
 
+# TODO - Timer
+
 class Player:
     def __init__(self, opponent: bool, ia: bool = False):
         if ia and not opponent:
@@ -252,7 +254,7 @@ winner = None
 g_trace = ""
 
 g_tree: Node
-DEPTH_LIMIT = 3
+DEPTH_LIMIT = 4
 
 g_board = [
     [0, 2, 0, 2, 0, 2, 0, 2],
@@ -388,67 +390,18 @@ def minimax_value(node: Node, maximizing: bool) -> float:
         for child in node.children:
             best_value = max(best_value, minimax_value(child, False))
         return best_value
-    else:
+    else: # Minimizing
         best_value = float('inf')
         for child in node.children:
             best_value = min(best_value, minimax_value(child, True))
         return best_value
-    """
-    Positional evaluation for a piece.
-    
-    For example, in checkers, pieces closer to the promotion row receive a bonus.
-    Assumes that:
-      - Each piece has a 'position' attribute as a tuple (row, col).
-      - The board has 8 rows (indexed 0 to 7).
-      
-    Additionally, pieces closer to the board center receive a small bonus.
-    """
-    bonus = 0.0
-    try:
-        row, col = piece.position
-    except AttributeError:
-        return bonus
-
-    # For player pieces, assume promotion is on row 7;
-    # for AI pieces, promotion is on row 0.
-    if player:
-        bonus += row * 0.1  # More advanced pieces get a higher bonus.
-    else:
-        bonus += (7 - row) * 0.1  # For AI pieces, being further up is better.
-
-    # Bonus for center control (optional)
-    center_row, center_col = 3.5, 3.5
-    distance_from_center = abs(row - center_row) + abs(col - center_col)
-    bonus -= distance_from_center * 0.05
-
-    return bonus
-
-    x, y = piece.x, piece.y  #cogemos la posicion de la pieza
-
-    cell_value = 0 
-
-    #aqui evaluamos la fila donde una pieza se convierte en riena
-    if player:
-        cell_value += ((10 - y) / 10) * 10 
-          #cuanto mas adelante (fila 0), gana mas puntos
-    else:
-        cell_value -= (y / 10) * 10
-         #cuanto mas atras (fila 7), pierde mas puntos
-
-    # Evaluar cercanía a los bordes laterales
-    side_edge_value = (1 - (0.5 / abs(x - 5.5))) * 20 if abs(x - 5.5) != 0 else 0
-    if player:
-        cell_value += side_edge_value  #sumamos si es el jugador 
-    else:
-        cell_value -= side_edge_value #restamos si es el oponente
-
-    return cell_value  #devolver el valor calculado
 
 def ai_turn():
     global g_trace
     # Check DB first
     db_move = getNextMove(g_trace)
     if db_move is not None:
+        print("DB")
         origin, destiny = db_move
         for piece in G_PLAYERS["opponent"].pieces:
             if (piece.x, piece.y) == (8 - origin[1], "abcdefgh".index(origin[0])):
@@ -499,56 +452,92 @@ def initialize_board():
             g_board[piece.x][piece.y] = piece.symbol
 
 initialize_board()
-
-WIDTH, HEIGHT = 600, 600
-ROWS, COLS = 8, 8
-SQUARE_SIZE = WIDTH // COLS
-MARGIN = 40
-
+ 
 WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 LIGHT_BROWN = (222, 184, 135)
 DARK_BROWN = (101, 67, 33)
 YELLOW = (255, 200, 0)
 PLAYER_COLOR = (0, 0, 0)
 OPPONENT_COLOR = (220, 20, 60)
 CROWN_COLOR = (255, 215, 0)
+WOOD_COLOR = (139, 69, 19)
 
 pygame.init()
 
-screen = pygame.display.set_mode((WIDTH + MARGIN, HEIGHT + MARGIN))
 pygame.display.set_caption("Checkers")
 font = pygame.font.SysFont(None, 30)
 clock = pygame.time.Clock()
 
+WIDTH, HEIGHT = 620, 620
+MARGIN = 80
+TOP_MARGIN = 100
+ROWS, COLS = 8, 8
+SQUARE_SIZE = (WIDTH - MARGIN // 2) // COLS
+BORDER_THICKNESS = 6
+
+# Set screen size to include margins and border
+screen = pygame.display.set_mode((WIDTH + 2 * MARGIN, HEIGHT + 2 * MARGIN))
+
 def draw_board():
-    screen.fill(WHITE)
+    screen.fill(WOOD_COLOR)
+    
+    # Draw border around the board (within expanded screen)
+    border_rect = pygame.Rect(MARGIN + 2.5 * BORDER_THICKNESS, TOP_MARGIN, 
+                              (WIDTH - MARGIN // 2) + 2.5 * BORDER_THICKNESS, (WIDTH - MARGIN // 2) + 2.5 * BORDER_THICKNESS)
+    pygame.draw.rect(screen, BLACK, border_rect)
+    
+    # Draw checkered squares
     for row in range(ROWS):
         for col in range(COLS):
+            x = col * SQUARE_SIZE + MARGIN + 4 * BORDER_THICKNESS
+            y = row * SQUARE_SIZE + TOP_MARGIN + 1.5 * BORDER_THICKNESS
             color = LIGHT_BROWN if (row + col) % 2 == 0 else DARK_BROWN
-            rect = pygame.Rect(col * SQUARE_SIZE + MARGIN, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)
-            pygame.draw.rect(screen, color, rect)
+            pygame.draw.rect(screen, color, (x, y, SQUARE_SIZE, SQUARE_SIZE))
+    
+    # Draw coordinate labels (now within expanded margins)
     letters = "ABCDEFGH"
+    # Column labels (A-H at the bottom)
     for i in range(COLS):
-        text = font.render(letters[i], True, DARK_BROWN)
-        screen.blit(text, (i * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2 - text.get_width() // 2, HEIGHT * 1.02))
+        text = font.render(letters[i], True, BLACK)
+        screen.blit(text, (
+            i * SQUARE_SIZE + MARGIN + SQUARE_SIZE - text.get_width() * 1.5,
+            MARGIN + HEIGHT + 10
+        ))
+    
+    # Row labels (8-1 on the left)
     for i in range(ROWS):
-        text = font.render(str(ROWS - i), True, DARK_BROWN)
-        screen.blit(text, (12, i * SQUARE_SIZE + SQUARE_SIZE // 2 - text.get_height() // 2))
+        text = font.render(str(ROWS - i), True, BLACK)
+        screen.blit(text, (
+            MARGIN - 12,
+            i * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2 + text.get_height()
+        ))
 
 def draw_pieces():
     for row in range(ROWS):
         for col in range(COLS):
             cell = g_board[row][col]
-            if cell != 0:
-                center_x = col * SQUARE_SIZE + SQUARE_SIZE // 2 + MARGIN
-                center_y = row * SQUARE_SIZE + SQUARE_SIZE // 2
-                radius = SQUARE_SIZE // 3
-                if cell in (1, 3):
-                    pygame.draw.circle(screen, PLAYER_COLOR, (center_x, center_y), radius)
-                elif cell in (2, 4):
-                    pygame.draw.circle(screen, OPPONENT_COLOR, (center_x, center_y), radius)
-                if cell in (3, 4):
-                    pygame.draw.circle(screen, CROWN_COLOR, (center_x, center_y), radius // 2)
+            if cell == 0:
+                continue
+            
+            # Calculate center position of the piece
+            center_x = col * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2
+            center_y = row * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2
+            radius = SQUARE_SIZE // 3
+            
+            # Determine piece color
+            if cell in (1, 3):
+                color = PLAYER_COLOR  # Black pieces
+            else:
+                color = OPPONENT_COLOR  # Red pieces
+            
+            # Draw the base piece
+            pygame.draw.circle(screen, color, (center_x, center_y), radius)
+            
+            # Draw crown for kings (cells 3 or 4)
+            if cell in (3, 4):
+                crown_radius = radius // 2
+                pygame.draw.circle(screen, CROWN_COLOR, (center_x, center_y), crown_radius)
 
 def get_board_position(mouse_pos):
     x, y = mouse_pos
@@ -561,8 +550,9 @@ def get_board_position(mouse_pos):
 selected_piece_obj = None
 turn = 0
 
-loading_screen_with_image()
-mode = show_menu()
+loading_screen_with_image(WIDTH, HEIGHT, MARGIN)
+mode = show_menu(WIDTH, HEIGHT, MARGIN)
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -603,6 +593,8 @@ while running:
                                 break
                         if not found:
                             selected_piece_obj = None
+            draw_board()
+            draw_pieces()
         elif mode == "PVC" and turn == 1 and not game_over:
             time.sleep(0.5)
             ai_turn()

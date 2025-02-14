@@ -7,10 +7,10 @@ from OpenGL.GLUT import *
 from pygame import mixer
 
 #Crear menu
-def show_menu():
+def show_menu(width, height, margin):
+
     pygame.init()
-    display = (640, 640)
-    screen = pygame.display.set_mode(display)
+    screen = pygame.display.set_mode((width + 2 * margin, height + 2 * margin))
     pygame.display.set_caption("Menú Principal")
     font = pygame.font.SysFont("Impact", 36)
     small_font = pygame.font.Font(None, 28)
@@ -45,8 +45,8 @@ def show_menu():
     top_image_index = 0
 
     # Posición del icono de información
-    info_icon_rect = info_icon.get_rect(topright=(display[0] - 20, 20))
-    info_icon_rect2 = info_icon2.get_rect(topright=(display[0] - 20, 80))
+    info_icon_rect = info_icon.get_rect(topright=(width - 20, 20))
+    info_icon_rect2 = info_icon2.get_rect(topright=(width - 20, 80))
     show_info_box = False  # Controlar la visibilidad del cuadro de información
 
 
@@ -99,7 +99,7 @@ def show_menu():
                 right_arrow_opacity = 255
         
         # Posicionar la imagen superior (centrada arriba)
-        top_x = (display[0] - top_images[top_image_index].get_width()) // 2
+        top_x = (width - top_images[top_image_index].get_width()) // 2
         top_image = top_images[top_image_index].copy()
         top_image.fill((255, 255, 255), special_flags=pygame.BLEND_RGBA_MULT)
         screen.blit(top_image, (top_x, 50))
@@ -114,14 +114,14 @@ def show_menu():
         screen.blit(right_arrow_faded, (top_x + top_images[top_image_index].get_width() + 10, 50 + (top_images[top_image_index].get_height() // 2 - right_arrow.get_height() // 2)))
         
         # Dibujar botón "Start"
-        button_rect = pygame.Rect(display[0] // 2 - 100, display[1] // 2 - 30, 200, 60)
+        button_rect = pygame.Rect(width // 2 - 100, height // 2 - 30, 200, 60)
         pygame.draw.rect(screen, button_color, button_rect, border_radius=10)
         text_surface = font.render("Start", True, text_color)
         text_rect = text_surface.get_rect(center=button_rect.center)
         screen.blit(text_surface, text_rect)
         
         # Posicionar la imagen inferior (centrada abajo)
-        screen.blit(bottom_image, ((display[0] - bottom_image.get_width()) // 2, display[1] - bottom_image.get_height() - 50))
+        screen.blit(bottom_image, ((width - bottom_image.get_width()) // 2, height - bottom_image.get_height() - 50))
         
         # Manejar eventos
         for event in pygame.event.get():
