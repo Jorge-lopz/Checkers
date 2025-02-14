@@ -11,7 +11,7 @@
 # --------------------------------------------------------------------------- #
 
 from supabase import create_client, Client  # Required package to easily connect to Supabase
-import schema as sch  # Database schema for the project
+import DB.schema as sch  # Database schema for the project
 
 url: str = "https://cldyxcdaelouqxjnkolv.supabase.co"
 key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsZHl4Y2RhZWxvdXF4am5rb2x2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcxMDU4NTgsImV4cCI6MjA1MjY4MTg1OH0._Po6_22wRsIdpa17dotqLia4uOLxE8v7sgDaaeD0TWw"

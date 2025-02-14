@@ -14,9 +14,9 @@
 Includes all necessary functions to use the default openings on the game.
 """
 
-from db import getOpenings
+from DB.db import getOpenings
 
-G_OPENINGS = getOpenings()  # g_ prefix as it is a global variable
+G_OPENINGS = getOpenings()
 
 def matchOpening(trace: str) -> str | None:
     """Check whether the given trace is a predefined opening.

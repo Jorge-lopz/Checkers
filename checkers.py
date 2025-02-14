@@ -1,33 +1,24 @@
 # --------------------------------------------------------------------------- #
 #                                                                             #
-#     game.py                                             +#######+           #
+#     checkers.py                                         +#######+           #
 #                                                       +###########+         #
 #     PROJECT: Checkers                       ·''''''''·#############         #
-#     AUTHOR(S): IA Team                     '''''''''''+###########+         #
+#                                            '''''''''''+###########+         #
 #                                            '''''''''''' +#######+           #
 #     CREATED DATE: 30/01/2025               ''''''''''''                     #
-#     LAST UPDATE: 30/01/2025                 `''''''''´                      #
+#     LAST UPDATE: 14/02/2025                 `''''''''´                      #
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
-import pygame
-import random
+import os
 import time
+import pygame
 from copy import deepcopy
 
-from GUI.loading_screen import loading_screen_with_image
 from GUI.menu import show_menu
+from GUI.loading_screen import loading_screen_with_image
 
-game_over = False
-winner = None
-
-def check_bounds(x: int, y: int) -> bool:
-    return 0 <= x < 8 and 0 <= y < 8
-
-def empty_cell(x: int, y: int, board: list = None) -> bool:
-    if board is None:
-        board = g_board
-    return board[x][y] == 0
+from DB.openings import getNextMove
 
 class Player:
     def __init__(self, opponent: bool, ia: bool = False):
@@ -163,8 +154,6 @@ class Piece:
         if (self.x == 0 and not self.player.opponent) or (self.x == 7 and self.player.opponent):
             self.set_queen()
 
-DEPTH_LIMIT = 3
-
 class Node:
     def __init__(self, board, last_move, last_catch, depth, pieces_player: list, pieces_opponent: list):
         self.board = board
@@ -239,53 +228,249 @@ class Node:
         if childs is None:
             childs = self.get_moves()
             if childs is None:
-                global game_over, winner
-                game_over = True
-                if self.depth % 2 == 0:
-                    winner = "player"
-                    print("Player won!")
-                else:
-                    winner = "ai"
-                    print("AI won!")
+                # Handle game over
                 return
             for origin, moves in childs.items():
                 for move in moves:
                     self.children.append(self.create_node(origin, move))
         else:
-            max_consecutive_captures = 1
+            # Find maximum captures in any move
+            all_captures = [catch for _, catches in childs.items() for catch in catches]
+            if not all_captures:
+                return
+            max_captures = max(len(catch[1]) for catch in all_captures)
+            
+            # Only keep moves with max captures
             for origin, catches in childs.items():
                 for catch in catches:
-                    if len(catch[1]) > max_consecutive_captures:
-                        max_consecutive_captures = len(catch[1])
-            for origin, catches in childs.items():
-                for catch in catches:
-                    self.children.append(self.create_node(origin, catch[0], catch[1]))
+                    if len(catch[1]) == max_captures:
+                        self.children.append(self.create_node(origin, catch[0], catch[1]))
+
+game_over = False
+winner = None
+
+g_trace = ""
 
 g_tree: Node
+DEPTH_LIMIT = 3
+
+g_board = [
+    [0, 2, 0, 2, 0, 2, 0, 2],
+    [2, 0, 2, 0, 2, 0, 2, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+G_PLAYERS = {"player": Player(False)}
+G_PLAYERS["opponent"] = Player(True, True)
+
+def check_bounds(x: int, y: int) -> bool:
+    return 0 <= x < 8 and 0 <= y < 8
+
+def empty_cell(x: int, y: int, board: list = None) -> bool:
+    if board is None:
+        board = g_board
+    return board[x][y] == 0
+
+def generate_mermaid_tree(node: Node) -> str:
+    lines = ["graph TD"]
+    node_ids = {}  # maps id(node) to a unique mermaid node id
+    next_id = 0
+
+    def traverse(current: Node):
+        nonlocal next_id
+        # Assign an id to the current node if not already assigned.
+        current_id = node_ids.get(id(current))
+        if current_id is None:
+            current_id = f"node{next_id}"
+            node_ids[id(current)] = current_id
+            next_id += 1
+        # Label for current node: include depth and score.
+        label = f"Depth: {current.depth}\\nScore: {evaluate_score(current):.2f}"
+        lines.append(f'{current_id}["{label}"]')
+        # Process children.
+        for child in current.children:
+            # Assign id for the child.
+            child_id = f"node{next_id}"
+            node_ids[id(child)] = child_id
+            next_id += 1
+            # Label for child.
+            child_label = f"Depth: {child.depth}\\nScore: {evaluate_score(child):.2f}"
+            lines.append(f'{child_id}["{child_label}"]')
+            # Optionally, show the move that led to this child.
+            move_label = ""
+            if child.last_move:
+                move_label = f"{child.last_move[0]} -> {child.last_move[1]}".replace("(", "").replace(")", "").replace(",", "").replace("->", " to ")
+            lines.append(f"{current_id} -->|{move_label}| {child_id}")
+            # Recursively traverse the subtree.
+            traverse(child)
+    
+    traverse(node)
+    return "\n".join(lines)
 
 def ai():
     global g_tree
     # For the AI tree, depth 0 corresponds to the opponent’s (AI’s) move.
     g_tree = Node(g_board, None, None, 0, G_PLAYERS["player"].pieces, G_PLAYERS["opponent"].pieces)
+    mermaid_diagram = generate_mermaid_tree(g_tree)
+    with open("mermaid_diagram.txt", "w") as f:
+        f.write(mermaid_diagram)
+    #os.startfile("mermaid_diagram.txt")
     return minimax()
 
-def minimax() -> Node: # Returns a node
-    return random.choice(g_tree.children) if g_tree.children else None
+def minimax() -> Node:
+    if not g_tree.children:
+        return None
+
+    best_move = None
+    # At the root (depth 0), it's the AI's move, so it is the minimizing player.
+    best_value = float('inf')
+    
+    for child in g_tree.children:
+        # Next level (depth 1) will be the maximizing player's turn.
+        value = minimax_value(child, True)
+        if value < best_value:
+            best_value = value
+            best_move = child
+
+    return best_move
+
+def evaluate_position(piece, player=True) -> float:
+    if piece.queen:
+        return 0.0
+    
+    row = piece.x  # Corrected to use row (x-coordinate)
+    if player:
+        return (7 - row) * 0.4  # Player advances toward row 0
+    else:
+        return row * 0.4  # AI advances toward row 7
+
+def evaluate_score(node: Node) -> float:
+
+    piece_value = 1.0
+    queen_value = 3.5
+
+    player_score = 0.0
+    opponent_score = 0.0
+
+    # Player pieces
+    for piece in node.pieces_player:
+        player_score += queen_value if piece.queen else piece_value
+        player_score += evaluate_position(piece, player=True)
+        try:
+            moves = piece.get_moves(node.board)
+            player_score += 0.3 * len(moves)
+        except Exception:
+            pass
+
+    # AI pieces
+    for piece in node.pieces_opponent:
+        opponent_score += queen_value if piece.queen else piece_value
+        opponent_score += evaluate_position(piece, player=False)
+        try:
+            moves = piece.get_moves(node.board)
+            opponent_score += 0.3 * len(moves)
+        except Exception:
+            pass
+
+    return player_score - opponent_score
+
+def minimax_value(node: Node, maximizing: bool) -> float:
+    if not node.children:
+        return evaluate_score(node)
+    
+    if maximizing:
+        best_value = float('-inf')
+        for child in node.children:
+            best_value = max(best_value, minimax_value(child, False))
+        return best_value
+    else:
+        best_value = float('inf')
+        for child in node.children:
+            best_value = min(best_value, minimax_value(child, True))
+        return best_value
+    """
+    Positional evaluation for a piece.
+    
+    For example, in checkers, pieces closer to the promotion row receive a bonus.
+    Assumes that:
+      - Each piece has a 'position' attribute as a tuple (row, col).
+      - The board has 8 rows (indexed 0 to 7).
+      
+    Additionally, pieces closer to the board center receive a small bonus.
+    """
+    bonus = 0.0
+    try:
+        row, col = piece.position
+    except AttributeError:
+        return bonus
+
+    # For player pieces, assume promotion is on row 7;
+    # for AI pieces, promotion is on row 0.
+    if player:
+        bonus += row * 0.1  # More advanced pieces get a higher bonus.
+    else:
+        bonus += (7 - row) * 0.1  # For AI pieces, being further up is better.
+
+    # Bonus for center control (optional)
+    center_row, center_col = 3.5, 3.5
+    distance_from_center = abs(row - center_row) + abs(col - center_col)
+    bonus -= distance_from_center * 0.05
+
+    return bonus
+
+    x, y = piece.x, piece.y  #cogemos la posicion de la pieza
+
+    cell_value = 0 
+
+    #aqui evaluamos la fila donde una pieza se convierte en riena
+    if player:
+        cell_value += ((10 - y) / 10) * 10 
+          #cuanto mas adelante (fila 0), gana mas puntos
+    else:
+        cell_value -= (y / 10) * 10
+         #cuanto mas atras (fila 7), pierde mas puntos
+
+    # Evaluar cercanía a los bordes laterales
+    side_edge_value = (1 - (0.5 / abs(x - 5.5))) * 20 if abs(x - 5.5) != 0 else 0
+    if player:
+        cell_value += side_edge_value  #sumamos si es el jugador 
+    else:
+        cell_value -= side_edge_value #restamos si es el oponente
+
+    return cell_value  #devolver el valor calculado
 
 def ai_turn():
-    if game_over:
-        return False
-    move = ai()
-    if move is None:
-        check_win_condition()
-        return False
-    origin, destiny = move.last_move
-    for piece in G_PLAYERS["opponent"].pieces:
-        if (piece.x, piece.y) == (origin[0], origin[1]):
-            piece.move((destiny[0], destiny[1]), move.last_catch)
+    global g_trace
+    # Check DB first
+    db_move = getNextMove(g_trace)
+    if db_move is not None:
+        origin, destiny = db_move
+        for piece in G_PLAYERS["opponent"].pieces:
+            if (piece.x, piece.y) == (8 - origin[1], "abcdefgh".index(origin[0])):
+                g_trace += "abcdefgh"[piece.y] + str(8 - piece.x) + destiny[0] + str(destiny[1]) + ";"
+                piece.move((8 - destiny[1], "abcdefgh".index(destiny[0])), None)
+                check_win_condition()
+                return True
+    else:
+        if game_over:
+            return False
+        move = ai()
+        if move is None:
             check_win_condition()
-            return True
-    return False
+            return False
+        origin, destiny = move.last_move
+        for piece in G_PLAYERS["opponent"].pieces:
+            if (piece.x, piece.y) == (origin[0], origin[1]):
+                g_trace += "abcdefgh"[piece.y] + str(8 - piece.x) + "abcdefgh"[destiny[1]] + str(8 - destiny[0]) + ";"
+                piece.move((destiny[0], destiny[1]), move.last_catch)
+                check_win_condition()
+                return True
+        return False
 
 def check_win_condition():
     global game_over, winner
@@ -303,20 +488,6 @@ def check_win_condition():
         game_over = True
         winner = "player"
         print("Player won!")
-
-g_board = [
-    [0, 2, 0, 2, 0, 2, 0, 2],
-    [2, 0, 2, 0, 2, 0, 2, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0]
-]
-
-G_PLAYERS = {"player": Player(False)}
-G_PLAYERS["opponent"] = Player(True, True)
 
 def initialize_board():
     global g_board
@@ -417,6 +588,8 @@ while running:
                     for cap in capture_moves:
                         valid_moves[cap[0]] = cap[1]
                     if (row, col) in valid_moves:
+                        if (turn == 0 and mode == "PVC"):
+                            g_trace += "abcdefgh"[selected_piece_obj.y] + str(8 - selected_piece_obj.x) + "abcdefgh"[col] + str(8 - row) + "-"
                         selected_piece_obj.move((row, col), valid_moves[(row, col)])
                         check_win_condition()
                         selected_piece_obj = None

@@ -303,11 +303,8 @@ def evaluate_score(node: Node):
     player_score = 0  #puntos totales del jugador
     opponent_score = 0  #puntos totales de oponente
 
-    
     piece_value = 1  #valor de pieza normal  
     queen_value = 5  #valor de reina
-
-
 
     # Evaluar las piezas del jugador
     for piece in node.pieces_player:
@@ -319,9 +316,6 @@ def evaluate_score(node: Node):
 
         #sumamos las puntos de la posicion
         player_score += evaluate_position(piece, player=True)
-
-
-
     
     for piece in node.pieces_opponent:
         if piece.queen:
@@ -332,9 +326,6 @@ def evaluate_score(node: Node):
         
         opponent_score += evaluate_position(piece, player=False)
 
-
-
-
     #aqui sumamos puntos si el jugador  captura pieza
     for piece in node.pieces_player:
 
@@ -342,19 +333,13 @@ def evaluate_score(node: Node):
 
         player_score += len(catches) * 2  #sumamos la cantidad de capturas por  2 puntos
 
-
-
-    
     for piece in node.pieces_opponent:
         catches = piece.get_catches(node.board)  
 
         opponent_score += len(catches) * 2  
 
-    
-
     #aqui devolvemos la deferencia entre el jugador y el oponente
     return player_score - opponent_score
-
 
 def evaluate_position(piece, player=True):
 
@@ -370,10 +355,6 @@ def evaluate_position(piece, player=True):
         cell_value -= (y / 10) * 10
          #cuanto mas atras (fila 7), pierde mas puntos
 
-
-
-
-
     # Evaluar cercanía a los bordes laterales
     side_edge_value = (1 - (0.5 / abs(x - 5.5))) * 20 if abs(x - 5.5) != 0 else 0
     if player:
@@ -382,18 +363,6 @@ def evaluate_position(piece, player=True):
         cell_value -= side_edge_value #restamos si es el oponente
 
     return cell_value  #devolver el valor calculado
-
-
-    """
-    explicacion de la formula :
-
-    # 1 - (0.5 / abs(x - 5.5)): cuanto más lejos esté la pieza del centro, más grande será el número
-
-    # multiplicamos por 20 para que la diferencia sea más grande
-    # si la pieza está en el centro (columna 5.5), no se suman puntos (side_edge_value será 0)
-    # si la pieza está más cerca del borde, sumamos más puntos
-    
-    """
 
 # GAME #
 
