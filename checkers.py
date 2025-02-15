@@ -521,9 +521,9 @@ def draw_pieces():
                 continue
             
             # Calculate center position of the piece
-            center_x = col * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2
-            center_y = row * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2
             radius = SQUARE_SIZE // 3
+            center_x = col * SQUARE_SIZE + MARGIN + SQUARE_SIZE // 2 + radius
+            center_y = row * SQUARE_SIZE + TOP_MARGIN + SQUARE_SIZE // 2 + radius // 2.5
             
             # Determine piece color
             if cell in (1, 3):
