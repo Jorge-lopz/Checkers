@@ -254,7 +254,7 @@ winner = None
 g_trace = ""
 
 g_tree: Node
-DEPTH_LIMIT = 4
+DEPTH_LIMIT = 3
 
 g_board = [
     [0, 2, 0, 2, 0, 2, 0, 2],
@@ -541,10 +541,24 @@ def draw_pieces():
 
 def get_board_position(mouse_pos):
     x, y = mouse_pos
-    if x < MARGIN or x > WIDTH + MARGIN or y < 0 or y > HEIGHT:
+    # Calculate the board's boundaries based on drawing parameters
+    board_left = MARGIN + 4 * BORDER_THICKNESS
+    board_top = TOP_MARGIN + 1.5 * BORDER_THICKNESS
+    board_right = board_left + COLS * SQUARE_SIZE
+    board_bottom = board_top + ROWS * SQUARE_SIZE
+
+    # Check if click is outside the board area
+    if x < board_left or x >= board_right or y < board_top or y >= board_bottom:
         return None
-    col = (x - MARGIN) // SQUARE_SIZE
-    row = y // SQUARE_SIZE
+
+    # Calculate grid position relative to board
+    col = int((x - board_left) // SQUARE_SIZE)
+    row = int((y - board_top) // SQUARE_SIZE)
+
+    # Ensure valid indices (0-7 for standard checkers)
+    if row < 0 or row >= ROWS or col < 0 or col >= COLS:
+        return None
+
     return (row, col)
 
 selected_piece_obj = None
@@ -593,6 +607,8 @@ while running:
                                 break
                         if not found:
                             selected_piece_obj = None
+            else:
+                selected_piece_obj = None
             draw_board()
             draw_pieces()
         elif mode == "PVC" and turn == 1 and not game_over:
@@ -603,7 +619,7 @@ while running:
     draw_pieces()
     if selected_piece_obj:
         s_row, s_col = selected_piece_obj.x, selected_piece_obj.y
-        rect = pygame.Rect(s_col * SQUARE_SIZE + MARGIN, s_row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)
+        rect = pygame.Rect(s_col * SQUARE_SIZE + 1.3 * MARGIN, s_row * SQUARE_SIZE + TOP_MARGIN + 1.5 *BORDER_THICKNESS, SQUARE_SIZE, SQUARE_SIZE)
         pygame.draw.rect(screen, YELLOW, rect, 3)
     pygame.display.flip()
 
