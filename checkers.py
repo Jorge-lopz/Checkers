@@ -329,11 +329,9 @@ def minimax() -> Node:
         return None
 
     best_move = None
-    # At the root (depth 0), it's the AI's move, so it is the minimizing player.
     best_value = float('inf')
     
     for child in g_tree.children:
-        # Next level (depth 1) will be the maximizing player's turn.
         value = minimax_value(child, True)
         if value < best_value:
             best_value = value
@@ -382,6 +380,7 @@ def evaluate_score(node: Node) -> float:
     return player_score - opponent_score
 
 def minimax_value(node: Node, maximizing: bool) -> float:
+    
     if not node.children:
         return evaluate_score(node)
     
@@ -408,22 +407,20 @@ def ai_turn():
                 g_trace += "abcdefgh"[piece.y] + str(8 - piece.x) + destiny[0] + str(destiny[1]) + ";"
                 piece.move((8 - destiny[1], "abcdefgh".index(destiny[0])), None)
                 check_win_condition()
-                return True
     else:
         if game_over:
-            return False
+            return
         move = ai()
         if move is None:
             check_win_condition()
-            return False
+            return
         origin, destiny = move.last_move
         for piece in G_PLAYERS["opponent"].pieces:
             if (piece.x, piece.y) == (origin[0], origin[1]):
                 g_trace += "abcdefgh"[piece.y] + str(8 - piece.x) + "abcdefgh"[destiny[1]] + str(8 - destiny[0]) + ";"
                 piece.move((destiny[0], destiny[1]), move.last_catch)
                 check_win_condition()
-                return True
-        return False
+                return
 
 def check_win_condition():
     global game_over, winner
@@ -555,10 +552,6 @@ def get_board_position(mouse_pos):
     col = int((x - board_left) // SQUARE_SIZE)
     row = int((y - board_top) // SQUARE_SIZE)
 
-    # Ensure valid indices (0-7 for standard checkers)
-    if row < 0 or row >= ROWS or col < 0 or col >= COLS:
-        return None
-
     return (row, col)
 
 selected_piece_obj = None
@@ -585,7 +578,7 @@ while running:
                         if (piece.x, piece.y) == (row, col):
                             selected_piece_obj = piece
                             break
-                else:
+                else: # If there already was selected piece
                     normal_moves = selected_piece_obj.get_moves(g_board) or []
                     capture_moves = selected_piece_obj.get_catches(g_board) or []
                     valid_moves = {move: None for move in normal_moves}
