@@ -10,7 +10,6 @@
 #                                                                             #
 # --------------------------------------------------------------------------- #
 
-import os
 import time
 import pygame
 from copy import deepcopy
@@ -19,8 +18,6 @@ from GUI.menu import show_menu
 from GUI.loading_screen import loading_screen_with_image
 
 from DB.openings import getNextMove
-
-# TODO - Timer
 
 class Player:
     def __init__(self, opponent: bool, ia: bool = False):
@@ -473,8 +470,6 @@ ROWS, COLS = 8, 8
 SQUARE_SIZE = (WIDTH - MARGIN // 2) // COLS
 BORDER_THICKNESS = 6
 
-# Set screen size to include margins and border
-screen = pygame.display.set_mode((WIDTH + 2 * MARGIN, HEIGHT + 2 * MARGIN))
 
 def draw_board():
     screen.fill(WOOD_COLOR)
@@ -559,6 +554,7 @@ turn = 0
 
 loading_screen_with_image(WIDTH, HEIGHT, MARGIN)
 mode = show_menu(WIDTH, HEIGHT, MARGIN)
+screen = pygame.display.set_mode((WIDTH + 2 * MARGIN, HEIGHT + 2 * MARGIN))
 
 running = True
 while running:

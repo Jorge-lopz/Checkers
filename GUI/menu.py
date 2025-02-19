@@ -10,7 +10,7 @@ from pygame import mixer
 def show_menu(width, height, margin):
 
     pygame.init()
-    screen = pygame.display.set_mode((width + 2 * margin, height + 2 * margin))
+    screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Menú Principal")
     font = pygame.font.SysFont("Impact", 36)
     small_font = pygame.font.Font(None, 28)
@@ -61,13 +61,13 @@ def show_menu(width, height, margin):
         screen.fill(bg_color)
 
         # Dibujar el icono de información
-        screen.blit(info_icon, info_icon_rect.topleft)
-        screen.blit(info_icon2, info_icon_rect2.topleft)
+        # screen.blit(info_icon, info_icon_rect.topleft)
+        # screen.blit(info_icon2, info_icon_rect2.topleft)
 
         # Si el cursor está sobre el icono, mostrar el cuadro de información
-        if show_info_box:
-            draw_info_box(screen, small_font, info_icon_rect, "Spacebar  -  Pause")
-            draw_info_box(screen, small_font, info_icon_rect2, "S  -  Mute")
+        # if show_info_box:
+        #     draw_info_box(screen, small_font, info_icon_rect, "Space - Pause")
+        #     draw_info_box(screen, small_font, info_icon_rect2, "S - Mute")
         
         # Manejar animación de opacidad
         if fading:

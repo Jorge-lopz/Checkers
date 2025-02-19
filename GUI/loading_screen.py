@@ -10,7 +10,7 @@ from pygame import mixer
 # Pantalla de carga 
 def loading_screen_with_image(width, height, margin):
     pygame.init()
-    screen = pygame.display.set_mode((width + 2 * margin, height + 2 * margin))
+    screen = pygame.display.set_mode((width, height))
     clock = pygame.time.Clock()
     loading = True
     progress = 0
@@ -48,17 +48,17 @@ def loading_screen_with_image(width, height, margin):
         pygame.draw.rect(
             screen,
             (196, 83, 72),
-            (bar_x, bar_y, progress * bar_width // 100, bar_height),
+            (bar_x, bar_y, progress * bar_width // 500, bar_height),
             border_radius=border_radius,
         )
 
 
         pygame.display.flip()
-        clock.tick(300)
+        clock.tick(500)
 
         progress += 1  # Incrementar progreso
-        if progress > 100:  # Finalizar cuando llega al 100%
+        if progress > 500:  # Finalizar cuando llega al 100%
             loading = False
 
     # Esperar un momento antes de continuar
-    pygame.time.wait(300)
+    pygame.time.wait(50)
