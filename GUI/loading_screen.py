@@ -1,13 +1,21 @@
+# --------------------------------------------------------------------------- #
+#                                                                             #
+#     loading_screen.py                                   +#######+           #
+#                                                       +###########+         #
+#     PROJECT: Checkers                       ·''''''''·#############         #
+#                                            '''''''''''+###########+         #
+#                                            '''''''''''' +#######+           #
+#     CREATED DATE: 06/02/2025               ''''''''''''                     #
+#     LAST UPDATE: 18/02/2025                 `''''''''´                      #
+#                                                                             #
+# --------------------------------------------------------------------------- #
+
 import pygame
 from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import * 
-from math import cos, sin, pi
 from OpenGL.GLUT import *
-from pygame import mixer
 
-
-# Pantalla de carga 
 def loading_screen_with_image(width, height, margin):
     pygame.init()
     screen = pygame.display.set_mode((width, height))

@@ -1,3 +1,15 @@
+# --------------------------------------------------------------------------- #
+#                                                                             #
+#     menu.py                                             +#######+           #
+#                                                       +###########+         #
+#     PROJECT: Checkers                       ·''''''''·#############         #
+#                                            '''''''''''+###########+         #
+#                                            '''''''''''' +#######+           #
+#     CREATED DATE: 06/02/2025               ''''''''''''                     #
+#     LAST UPDATE: 18/02/2025                 `''''''''´                      #
+#                                                                             #
+# --------------------------------------------------------------------------- #
+
 import pygame
 from pygame.locals import *
 from OpenGL.GL import *
@@ -6,7 +18,6 @@ from math import cos, sin, pi
 from OpenGL.GLUT import *
 from pygame import mixer
 
-#Crear menu
 def show_menu(width, height, margin):
 
     pygame.init()
