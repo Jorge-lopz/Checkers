@@ -71,14 +71,14 @@ def show_menu(width, height, margin):
     while running:
         screen.fill(bg_color)
 
-        # Dibujar el icono de información
-        # screen.blit(info_icon, info_icon_rect.topleft)
-        # screen.blit(info_icon2, info_icon_rect2.topleft)
+        #Dibujar el icono de información
+        screen.blit(info_icon, info_icon_rect.topleft)
+        screen.blit(info_icon2, info_icon_rect2.topleft)
 
-        # Si el cursor está sobre el icono, mostrar el cuadro de información
-        # if show_info_box:
-        #     draw_info_box(screen, small_font, info_icon_rect, "Space - Pause")
-        #     draw_info_box(screen, small_font, info_icon_rect2, "S - Mute")
+        #Si el cursor está sobre el icono, mostrar el cuadro de información
+        if show_info_box:
+            draw_info_box(screen, small_font, info_icon_rect, "Space - Pause")
+            draw_info_box(screen, small_font, info_icon_rect2, "S - Mute")
         
         # Manejar animación de opacidad
         if fading:

@@ -1,209 +1,1325 @@
 graph TD
-node0["Depth: 0\nScore: 3.60"]
-node1["Depth: 1\nScore: -1.80"]
-node0 -->|7 6  to  4 3| node1
-node1["Depth: 1\nScore: -1.80"]
-node2["Depth: 2\nScore: -0.80"]
-node1 -->|7 0  to  6 1| node2
-node2["Depth: 2\nScore: -0.80"]
-node3["Depth: 3\nScore: -1.60"]
-node2 -->|4 3  to  7 0| node3
-node3["Depth: 3\nScore: -1.60"]
-node4["Depth: 2\nScore: -1.20"]
-node1 -->|0 5  to  1 4| node4
-node4["Depth: 2\nScore: -1.20"]
-node5["Depth: 3\nScore: -7.30"]
-node4 -->|0 3  to  2 5| node5
-node5["Depth: 3\nScore: -7.30"]
-node6["Depth: 2\nScore: -0.60"]
-node1 -->|0 5  to  2 3| node6
-node6["Depth: 2\nScore: -0.60"]
-node7["Depth: 3\nScore: -1.30"]
-node6 -->|0 3  to  1 2| node7
-node7["Depth: 3\nScore: -1.30"]
-node8["Depth: 3\nScore: -1.30"]
-node6 -->|0 3  to  1 4| node8
-node8["Depth: 3\nScore: -1.30"]
-node9["Depth: 3\nScore: 0.00"]
-node6 -->|4 3  to  5 2| node9
-node9["Depth: 3\nScore: 0.00"]
-node10["Depth: 3\nScore: 0.30"]
-node6 -->|4 3  to  6 1| node10
-node10["Depth: 3\nScore: 0.30"]
-node11["Depth: 3\nScore: -0.30"]
-node6 -->|4 3  to  5 4| node11
-node11["Depth: 3\nScore: -0.30"]
-node12["Depth: 3\nScore: 0.30"]
-node6 -->|4 3  to  6 5| node12
-node12["Depth: 3\nScore: 0.30"]
-node13["Depth: 3\nScore: 0.90"]
-node6 -->|4 3  to  7 6| node13
-node13["Depth: 3\nScore: 0.90"]
-node14["Depth: 3\nScore: -0.30"]
-node6 -->|4 3  to  3 2| node14
-node14["Depth: 3\nScore: -0.30"]
-node15["Depth: 3\nScore: 0.60"]
-node6 -->|4 3  to  2 1| node15
-node15["Depth: 3\nScore: 0.60"]
-node16["Depth: 3\nScore: 0.90"]
-node6 -->|4 3  to  1 0| node16
-node16["Depth: 3\nScore: 0.90"]
-node17["Depth: 3\nScore: -0.90"]
-node6 -->|4 3  to  3 4| node17
-node17["Depth: 3\nScore: -0.90"]
-node18["Depth: 3\nScore: 0.30"]
-node6 -->|4 3  to  2 5| node18
-node18["Depth: 3\nScore: 0.30"]
-node19["Depth: 3\nScore: 0.60"]
-node6 -->|4 3  to  1 6| node19
-node19["Depth: 3\nScore: 0.60"]
-node20["Depth: 3\nScore: 1.20"]
-node6 -->|4 3  to  0 7| node20
-node20["Depth: 3\nScore: 1.20"]
-node21["Depth: 2\nScore: -0.90"]
-node1 -->|0 5  to  3 2| node21
-node21["Depth: 2\nScore: -0.90"]
-node22["Depth: 3\nScore: -6.20"]
-node21 -->|4 3  to  2 1| node22
-node22["Depth: 3\nScore: -6.20"]
-node23["Depth: 2\nScore: -1.20"]
-node1 -->|0 5  to  4 1| node23
-node23["Depth: 2\nScore: -1.20"]
-node24["Depth: 3\nScore: -1.60"]
-node23 -->|0 3  to  1 2| node24
-node24["Depth: 3\nScore: -1.60"]
-node25["Depth: 3\nScore: -2.20"]
-node23 -->|0 3  to  1 4| node25
-node25["Depth: 3\nScore: -2.20"]
-node26["Depth: 3\nScore: -0.90"]
-node23 -->|4 3  to  5 2| node26
-node26["Depth: 3\nScore: -0.90"]
-node27["Depth: 3\nScore: -0.30"]
-node23 -->|4 3  to  6 1| node27
-node27["Depth: 3\nScore: -0.30"]
-node28["Depth: 3\nScore: -0.90"]
-node23 -->|4 3  to  5 4| node28
-node28["Depth: 3\nScore: -0.90"]
-node29["Depth: 3\nScore: -0.30"]
-node23 -->|4 3  to  6 5| node29
-node29["Depth: 3\nScore: -0.30"]
-node30["Depth: 3\nScore: 0.30"]
-node23 -->|4 3  to  7 6| node30
-node30["Depth: 3\nScore: 0.30"]
-node31["Depth: 3\nScore: -1.50"]
-node23 -->|4 3  to  3 2| node31
-node31["Depth: 3\nScore: -1.50"]
-node32["Depth: 3\nScore: 0.00"]
-node23 -->|4 3  to  2 1| node32
-node32["Depth: 3\nScore: 0.00"]
-node33["Depth: 3\nScore: 0.30"]
-node23 -->|4 3  to  1 0| node33
-node33["Depth: 3\nScore: 0.30"]
-node34["Depth: 3\nScore: -1.20"]
-node23 -->|4 3  to  3 4| node34
-node34["Depth: 3\nScore: -1.20"]
-node35["Depth: 3\nScore: -0.30"]
-node23 -->|4 3  to  2 5| node35
-node35["Depth: 3\nScore: -0.30"]
-node36["Depth: 3\nScore: 0.00"]
-node23 -->|4 3  to  1 6| node36
-node36["Depth: 3\nScore: 0.00"]
-node37["Depth: 3\nScore: 0.60"]
-node23 -->|4 3  to  0 7| node37
-node37["Depth: 3\nScore: 0.60"]
-node38["Depth: 2\nScore: -1.80"]
-node1 -->|0 5  to  5 0| node38
-node38["Depth: 2\nScore: -1.80"]
-node39["Depth: 3\nScore: -2.20"]
-node38 -->|0 3  to  1 2| node39
-node39["Depth: 3\nScore: -2.20"]
-node40["Depth: 3\nScore: -2.80"]
-node38 -->|0 3  to  1 4| node40
-node40["Depth: 3\nScore: -2.80"]
-node41["Depth: 3\nScore: -1.20"]
-node38 -->|4 3  to  5 2| node41
-node41["Depth: 3\nScore: -1.20"]
-node42["Depth: 3\nScore: -1.20"]
-node38 -->|4 3  to  6 1| node42
-node42["Depth: 3\nScore: -1.20"]
-node43["Depth: 3\nScore: -1.50"]
-node38 -->|4 3  to  5 4| node43
-node43["Depth: 3\nScore: -1.50"]
-node44["Depth: 3\nScore: -0.90"]
-node38 -->|4 3  to  6 5| node44
-node44["Depth: 3\nScore: -0.90"]
-node45["Depth: 3\nScore: -0.30"]
-node38 -->|4 3  to  7 6| node45
-node45["Depth: 3\nScore: -0.30"]
-node46["Depth: 3\nScore: -2.40"]
-node38 -->|4 3  to  3 2| node46
-node46["Depth: 3\nScore: -2.40"]
-node47["Depth: 3\nScore: -0.60"]
-node38 -->|4 3  to  2 1| node47
-node47["Depth: 3\nScore: -0.60"]
-node48["Depth: 3\nScore: -0.30"]
-node38 -->|4 3  to  1 0| node48
-node48["Depth: 3\nScore: -0.30"]
-node49["Depth: 3\nScore: -1.80"]
-node38 -->|4 3  to  3 4| node49
-node49["Depth: 3\nScore: -1.80"]
-node50["Depth: 3\nScore: -0.90"]
-node38 -->|4 3  to  2 5| node50
-node50["Depth: 3\nScore: -0.90"]
-node51["Depth: 3\nScore: -0.60"]
-node38 -->|4 3  to  1 6| node51
-node51["Depth: 3\nScore: -0.60"]
-node52["Depth: 3\nScore: 0.00"]
-node38 -->|4 3  to  0 7| node52
-node52["Depth: 3\nScore: 0.00"]
-node53["Depth: 2\nScore: -1.80"]
-node1 -->|0 5  to  1 6| node53
-node53["Depth: 2\nScore: -1.80"]
-node54["Depth: 3\nScore: -5.60"]
-node53 -->|4 3  to  0 7| node54
-node54["Depth: 3\nScore: -5.60"]
-node55["Depth: 2\nScore: -1.80"]
-node1 -->|0 5  to  2 7| node55
-node55["Depth: 2\nScore: -1.80"]
-node56["Depth: 3\nScore: -2.20"]
-node55 -->|0 3  to  1 2| node56
-node56["Depth: 3\nScore: -2.20"]
-node57["Depth: 3\nScore: -2.20"]
-node55 -->|0 3  to  1 4| node57
-node57["Depth: 3\nScore: -2.20"]
-node58["Depth: 3\nScore: -1.20"]
-node55 -->|4 3  to  5 2| node58
-node58["Depth: 3\nScore: -1.20"]
-node59["Depth: 3\nScore: -0.90"]
-node55 -->|4 3  to  6 1| node59
-node59["Depth: 3\nScore: -0.90"]
-node60["Depth: 3\nScore: -2.10"]
-node55 -->|4 3  to  5 4| node60
-node60["Depth: 3\nScore: -2.10"]
-node61["Depth: 3\nScore: -0.90"]
-node55 -->|4 3  to  6 5| node61
-node61["Depth: 3\nScore: -0.90"]
-node62["Depth: 3\nScore: -0.30"]
-node55 -->|4 3  to  7 6| node62
-node62["Depth: 3\nScore: -0.30"]
-node63["Depth: 3\nScore: -1.50"]
-node55 -->|4 3  to  3 2| node63
-node63["Depth: 3\nScore: -1.50"]
-node64["Depth: 3\nScore: -0.60"]
-node55 -->|4 3  to  2 1| node64
-node64["Depth: 3\nScore: -0.60"]
-node65["Depth: 3\nScore: -0.30"]
-node55 -->|4 3  to  1 0| node65
-node65["Depth: 3\nScore: -0.30"]
-node66["Depth: 3\nScore: -1.80"]
-node55 -->|4 3  to  3 4| node66
-node66["Depth: 3\nScore: -1.80"]
-node67["Depth: 3\nScore: -0.90"]
-node55 -->|4 3  to  2 5| node67
-node67["Depth: 3\nScore: -0.90"]
-node68["Depth: 3\nScore: -0.90"]
-node55 -->|4 3  to  1 6| node68
-node68["Depth: 3\nScore: -0.90"]
-node69["Depth: 3\nScore: 0.00"]
-node55 -->|4 3  to  0 7| node69
-node69["Depth: 3\nScore: 0.00"]
+node0["Depth: 0\nScore: 5.90"]
+node1["Depth: 1\nScore: 1.10"]
+node0 -->|0 3  to  2 5| node1
+node1["Depth: 1\nScore: 1.10"]
+node2["Depth: 2\nScore: 1.50"]
+node1 -->|7 2  to  6 1| node2
+node2["Depth: 2\nScore: 1.50"]
+node3["Depth: 3\nScore: 1.40"]
+node2 -->|0 1  to  1 0| node3
+node3["Depth: 3\nScore: 1.40"]
+node4["Depth: 4\nScore: 1.80"]
+node3 -->|6 1  to  5 2| node4
+node4["Depth: 4\nScore: 1.80"]
+node5["Depth: 4\nScore: 1.80"]
+node3 -->|6 5  to  5 4| node5
+node5["Depth: 4\nScore: 1.80"]
+node6["Depth: 4\nScore: 1.80"]
+node3 -->|6 5  to  5 6| node6
+node6["Depth: 4\nScore: 1.80"]
+node7["Depth: 4\nScore: 1.80"]
+node3 -->|3 2  to  2 1| node7
+node7["Depth: 4\nScore: 1.80"]
+node8["Depth: 4\nScore: 1.80"]
+node3 -->|3 2  to  2 3| node8
+node8["Depth: 4\nScore: 1.80"]
+node9["Depth: 4\nScore: 1.50"]
+node3 -->|6 3  to  5 2| node9
+node9["Depth: 4\nScore: 1.50"]
+node10["Depth: 4\nScore: 1.50"]
+node3 -->|6 3  to  5 4| node10
+node10["Depth: 4\nScore: 1.50"]
+node11["Depth: 4\nScore: 2.10"]
+node3 -->|6 7  to  5 6| node11
+node11["Depth: 4\nScore: 2.10"]
+node12["Depth: 3\nScore: 1.10"]
+node2 -->|0 1  to  1 2| node12
+node12["Depth: 3\nScore: 1.10"]
+node13["Depth: 4\nScore: 1.50"]
+node12 -->|6 1  to  5 2| node13
+node13["Depth: 4\nScore: 1.50"]
+node14["Depth: 4\nScore: 1.50"]
+node12 -->|6 5  to  5 4| node14
+node14["Depth: 4\nScore: 1.50"]
+node15["Depth: 4\nScore: 1.50"]
+node12 -->|6 5  to  5 6| node15
+node15["Depth: 4\nScore: 1.50"]
+node16["Depth: 4\nScore: 1.50"]
+node12 -->|3 2  to  2 1| node16
+node16["Depth: 4\nScore: 1.50"]
+node17["Depth: 4\nScore: 1.50"]
+node12 -->|3 2  to  2 3| node17
+node17["Depth: 4\nScore: 1.50"]
+node18["Depth: 4\nScore: 1.20"]
+node12 -->|6 3  to  5 2| node18
+node18["Depth: 4\nScore: 1.20"]
+node19["Depth: 4\nScore: 1.20"]
+node12 -->|6 3  to  5 4| node19
+node19["Depth: 4\nScore: 1.20"]
+node20["Depth: 4\nScore: 1.80"]
+node12 -->|6 7  to  5 6| node20
+node20["Depth: 4\nScore: 1.80"]
+node21["Depth: 3\nScore: 1.10"]
+node2 -->|2 5  to  3 4| node21
+node21["Depth: 3\nScore: 1.10"]
+node22["Depth: 4\nScore: 1.50"]
+node21 -->|6 1  to  5 2| node22
+node22["Depth: 4\nScore: 1.50"]
+node23["Depth: 4\nScore: 1.50"]
+node21 -->|6 5  to  5 4| node23
+node23["Depth: 4\nScore: 1.50"]
+node24["Depth: 4\nScore: 1.50"]
+node21 -->|6 5  to  5 6| node24
+node24["Depth: 4\nScore: 1.50"]
+node25["Depth: 4\nScore: 1.50"]
+node21 -->|3 2  to  2 1| node25
+node25["Depth: 4\nScore: 1.50"]
+node26["Depth: 4\nScore: 1.50"]
+node21 -->|3 2  to  2 3| node26
+node26["Depth: 4\nScore: 1.50"]
+node27["Depth: 4\nScore: 1.20"]
+node21 -->|6 3  to  5 2| node27
+node27["Depth: 4\nScore: 1.20"]
+node28["Depth: 4\nScore: 1.20"]
+node21 -->|6 3  to  5 4| node28
+node28["Depth: 4\nScore: 1.20"]
+node29["Depth: 4\nScore: 1.80"]
+node21 -->|6 7  to  5 6| node29
+node29["Depth: 4\nScore: 1.80"]
+node30["Depth: 3\nScore: 1.40"]
+node2 -->|2 5  to  3 6| node30
+node30["Depth: 3\nScore: 1.40"]
+node31["Depth: 4\nScore: 1.80"]
+node30 -->|6 1  to  5 2| node31
+node31["Depth: 4\nScore: 1.80"]
+node32["Depth: 4\nScore: 1.80"]
+node30 -->|6 5  to  5 4| node32
+node32["Depth: 4\nScore: 1.80"]
+node33["Depth: 4\nScore: 1.80"]
+node30 -->|6 5  to  5 6| node33
+node33["Depth: 4\nScore: 1.80"]
+node34["Depth: 4\nScore: 1.80"]
+node30 -->|3 2  to  2 1| node34
+node34["Depth: 4\nScore: 1.80"]
+node35["Depth: 4\nScore: 1.80"]
+node30 -->|3 2  to  2 3| node35
+node35["Depth: 4\nScore: 1.80"]
+node36["Depth: 4\nScore: 1.50"]
+node30 -->|6 3  to  5 2| node36
+node36["Depth: 4\nScore: 1.50"]
+node37["Depth: 4\nScore: 1.50"]
+node30 -->|6 3  to  5 4| node37
+node37["Depth: 4\nScore: 1.50"]
+node38["Depth: 4\nScore: 2.10"]
+node30 -->|6 7  to  5 6| node38
+node38["Depth: 4\nScore: 2.10"]
+node39["Depth: 3\nScore: 1.40"]
+node2 -->|0 5  to  1 4| node39
+node39["Depth: 3\nScore: 1.40"]
+node40["Depth: 4\nScore: 1.80"]
+node39 -->|6 1  to  5 2| node40
+node40["Depth: 4\nScore: 1.80"]
+node41["Depth: 4\nScore: 1.80"]
+node39 -->|6 5  to  5 4| node41
+node41["Depth: 4\nScore: 1.80"]
+node42["Depth: 4\nScore: 1.80"]
+node39 -->|6 5  to  5 6| node42
+node42["Depth: 4\nScore: 1.80"]
+node43["Depth: 4\nScore: 1.80"]
+node39 -->|3 2  to  2 1| node43
+node43["Depth: 4\nScore: 1.80"]
+node44["Depth: 4\nScore: 1.80"]
+node39 -->|3 2  to  2 3| node44
+node44["Depth: 4\nScore: 1.80"]
+node45["Depth: 4\nScore: 1.50"]
+node39 -->|6 3  to  5 2| node45
+node45["Depth: 4\nScore: 1.50"]
+node46["Depth: 4\nScore: 1.50"]
+node39 -->|6 3  to  5 4| node46
+node46["Depth: 4\nScore: 1.50"]
+node47["Depth: 4\nScore: 2.10"]
+node39 -->|6 7  to  5 6| node47
+node47["Depth: 4\nScore: 2.10"]
+node48["Depth: 3\nScore: 2.00"]
+node2 -->|0 5  to  1 6| node48
+node48["Depth: 3\nScore: 2.00"]
+node49["Depth: 4\nScore: 2.40"]
+node48 -->|6 1  to  5 2| node49
+node49["Depth: 4\nScore: 2.40"]
+node50["Depth: 4\nScore: 2.40"]
+node48 -->|6 5  to  5 4| node50
+node50["Depth: 4\nScore: 2.40"]
+node51["Depth: 4\nScore: 2.40"]
+node48 -->|6 5  to  5 6| node51
+node51["Depth: 4\nScore: 2.40"]
+node52["Depth: 4\nScore: 2.40"]
+node48 -->|3 2  to  2 1| node52
+node52["Depth: 4\nScore: 2.40"]
+node53["Depth: 4\nScore: 2.40"]
+node48 -->|3 2  to  2 3| node53
+node53["Depth: 4\nScore: 2.40"]
+node54["Depth: 4\nScore: 2.10"]
+node48 -->|6 3  to  5 2| node54
+node54["Depth: 4\nScore: 2.10"]
+node55["Depth: 4\nScore: 2.10"]
+node48 -->|6 3  to  5 4| node55
+node55["Depth: 4\nScore: 2.10"]
+node56["Depth: 4\nScore: 2.70"]
+node48 -->|6 7  to  5 6| node56
+node56["Depth: 4\nScore: 2.70"]
+node57["Depth: 3\nScore: 1.70"]
+node2 -->|0 7  to  1 6| node57
+node57["Depth: 3\nScore: 1.70"]
+node58["Depth: 4\nScore: 2.10"]
+node57 -->|6 1  to  5 2| node58
+node58["Depth: 4\nScore: 2.10"]
+node59["Depth: 4\nScore: 2.10"]
+node57 -->|6 5  to  5 4| node59
+node59["Depth: 4\nScore: 2.10"]
+node60["Depth: 4\nScore: 2.10"]
+node57 -->|6 5  to  5 6| node60
+node60["Depth: 4\nScore: 2.10"]
+node61["Depth: 4\nScore: 2.10"]
+node57 -->|3 2  to  2 1| node61
+node61["Depth: 4\nScore: 2.10"]
+node62["Depth: 4\nScore: 2.10"]
+node57 -->|3 2  to  2 3| node62
+node62["Depth: 4\nScore: 2.10"]
+node63["Depth: 4\nScore: 1.80"]
+node57 -->|6 3  to  5 2| node63
+node63["Depth: 4\nScore: 1.80"]
+node64["Depth: 4\nScore: 1.80"]
+node57 -->|6 3  to  5 4| node64
+node64["Depth: 4\nScore: 1.80"]
+node65["Depth: 4\nScore: 2.40"]
+node57 -->|6 7  to  5 6| node65
+node65["Depth: 4\nScore: 2.40"]
+node66["Depth: 3\nScore: 1.10"]
+node2 -->|4 1  to  5 2| node66
+node66["Depth: 3\nScore: 1.10"]
+node67["Depth: 4\nScore: 5.50"]
+node66 -->|6 1  to  4 3| node67
+node67["Depth: 4\nScore: 5.50"]
+node68["Depth: 4\nScore: 4.90"]
+node66 -->|6 3  to  4 1| node68
+node68["Depth: 4\nScore: 4.90"]
+node69["Depth: 3\nScore: 1.10"]
+node2 -->|2 7  to  3 6| node69
+node69["Depth: 3\nScore: 1.10"]
+node70["Depth: 4\nScore: 1.50"]
+node69 -->|6 1  to  5 2| node70
+node70["Depth: 4\nScore: 1.50"]
+node71["Depth: 4\nScore: 1.50"]
+node69 -->|6 5  to  5 4| node71
+node71["Depth: 4\nScore: 1.50"]
+node72["Depth: 4\nScore: 1.50"]
+node69 -->|6 5  to  5 6| node72
+node72["Depth: 4\nScore: 1.50"]
+node73["Depth: 4\nScore: 1.50"]
+node69 -->|3 2  to  2 1| node73
+node73["Depth: 4\nScore: 1.50"]
+node74["Depth: 4\nScore: 1.50"]
+node69 -->|3 2  to  2 3| node74
+node74["Depth: 4\nScore: 1.50"]
+node75["Depth: 4\nScore: 1.20"]
+node69 -->|6 3  to  5 2| node75
+node75["Depth: 4\nScore: 1.20"]
+node76["Depth: 4\nScore: 1.20"]
+node69 -->|6 3  to  5 4| node76
+node76["Depth: 4\nScore: 1.20"]
+node77["Depth: 4\nScore: 1.80"]
+node69 -->|6 7  to  5 6| node77
+node77["Depth: 4\nScore: 1.80"]
+node78["Depth: 2\nScore: 1.50"]
+node1 -->|6 5  to  5 4| node78
+node78["Depth: 2\nScore: 1.50"]
+node79["Depth: 3\nScore: 1.40"]
+node78 -->|0 1  to  1 0| node79
+node79["Depth: 3\nScore: 1.40"]
+node80["Depth: 4\nScore: 1.80"]
+node79 -->|7 2  to  6 1| node80
+node80["Depth: 4\nScore: 1.80"]
+node81["Depth: 4\nScore: 1.80"]
+node79 -->|5 4  to  4 3| node81
+node81["Depth: 4\nScore: 1.80"]
+node82["Depth: 4\nScore: 2.10"]
+node79 -->|5 4  to  4 5| node82
+node82["Depth: 4\nScore: 2.10"]
+node83["Depth: 4\nScore: 1.80"]
+node79 -->|7 6  to  6 5| node83
+node83["Depth: 4\nScore: 1.80"]
+node84["Depth: 4\nScore: 1.80"]
+node79 -->|3 2  to  2 1| node84
+node84["Depth: 4\nScore: 1.80"]
+node85["Depth: 4\nScore: 1.80"]
+node79 -->|3 2  to  2 3| node85
+node85["Depth: 4\nScore: 1.80"]
+node86["Depth: 4\nScore: 2.40"]
+node79 -->|6 3  to  5 2| node86
+node86["Depth: 4\nScore: 2.40"]
+node87["Depth: 4\nScore: 2.40"]
+node79 -->|6 7  to  5 6| node87
+node87["Depth: 4\nScore: 2.40"]
+node88["Depth: 3\nScore: 1.10"]
+node78 -->|0 1  to  1 2| node88
+node88["Depth: 3\nScore: 1.10"]
+node89["Depth: 4\nScore: 1.50"]
+node88 -->|7 2  to  6 1| node89
+node89["Depth: 4\nScore: 1.50"]
+node90["Depth: 4\nScore: 1.50"]
+node88 -->|5 4  to  4 3| node90
+node90["Depth: 4\nScore: 1.50"]
+node91["Depth: 4\nScore: 1.80"]
+node88 -->|5 4  to  4 5| node91
+node91["Depth: 4\nScore: 1.80"]
+node92["Depth: 4\nScore: 1.50"]
+node88 -->|7 6  to  6 5| node92
+node92["Depth: 4\nScore: 1.50"]
+node93["Depth: 4\nScore: 1.50"]
+node88 -->|3 2  to  2 1| node93
+node93["Depth: 4\nScore: 1.50"]
+node94["Depth: 4\nScore: 1.50"]
+node88 -->|3 2  to  2 3| node94
+node94["Depth: 4\nScore: 1.50"]
+node95["Depth: 4\nScore: 2.10"]
+node88 -->|6 3  to  5 2| node95
+node95["Depth: 4\nScore: 2.10"]
+node96["Depth: 4\nScore: 2.10"]
+node88 -->|6 7  to  5 6| node96
+node96["Depth: 4\nScore: 2.10"]
+node97["Depth: 3\nScore: 1.10"]
+node78 -->|2 5  to  3 4| node97
+node97["Depth: 3\nScore: 1.10"]
+node98["Depth: 4\nScore: 1.50"]
+node97 -->|7 2  to  6 1| node98
+node98["Depth: 4\nScore: 1.50"]
+node99["Depth: 4\nScore: 1.50"]
+node97 -->|5 4  to  4 3| node99
+node99["Depth: 4\nScore: 1.50"]
+node100["Depth: 4\nScore: 1.80"]
+node97 -->|5 4  to  4 5| node100
+node100["Depth: 4\nScore: 1.80"]
+node101["Depth: 4\nScore: 1.50"]
+node97 -->|7 6  to  6 5| node101
+node101["Depth: 4\nScore: 1.50"]
+node102["Depth: 4\nScore: 1.50"]
+node97 -->|3 2  to  2 1| node102
+node102["Depth: 4\nScore: 1.50"]
+node103["Depth: 4\nScore: 1.50"]
+node97 -->|3 2  to  2 3| node103
+node103["Depth: 4\nScore: 1.50"]
+node104["Depth: 4\nScore: 2.10"]
+node97 -->|6 3  to  5 2| node104
+node104["Depth: 4\nScore: 2.10"]
+node105["Depth: 4\nScore: 2.10"]
+node97 -->|6 7  to  5 6| node105
+node105["Depth: 4\nScore: 2.10"]
+node106["Depth: 3\nScore: 1.40"]
+node78 -->|2 5  to  3 6| node106
+node106["Depth: 3\nScore: 1.40"]
+node107["Depth: 4\nScore: 1.80"]
+node106 -->|7 2  to  6 1| node107
+node107["Depth: 4\nScore: 1.80"]
+node108["Depth: 4\nScore: 1.80"]
+node106 -->|5 4  to  4 3| node108
+node108["Depth: 4\nScore: 1.80"]
+node109["Depth: 4\nScore: 2.10"]
+node106 -->|5 4  to  4 5| node109
+node109["Depth: 4\nScore: 2.10"]
+node110["Depth: 4\nScore: 1.80"]
+node106 -->|7 6  to  6 5| node110
+node110["Depth: 4\nScore: 1.80"]
+node111["Depth: 4\nScore: 1.80"]
+node106 -->|3 2  to  2 1| node111
+node111["Depth: 4\nScore: 1.80"]
+node112["Depth: 4\nScore: 1.80"]
+node106 -->|3 2  to  2 3| node112
+node112["Depth: 4\nScore: 1.80"]
+node113["Depth: 4\nScore: 2.40"]
+node106 -->|6 3  to  5 2| node113
+node113["Depth: 4\nScore: 2.40"]
+node114["Depth: 4\nScore: 2.40"]
+node106 -->|6 7  to  5 6| node114
+node114["Depth: 4\nScore: 2.40"]
+node115["Depth: 3\nScore: 1.40"]
+node78 -->|0 5  to  1 4| node115
+node115["Depth: 3\nScore: 1.40"]
+node116["Depth: 4\nScore: 1.80"]
+node115 -->|7 2  to  6 1| node116
+node116["Depth: 4\nScore: 1.80"]
+node117["Depth: 4\nScore: 1.80"]
+node115 -->|5 4  to  4 3| node117
+node117["Depth: 4\nScore: 1.80"]
+node118["Depth: 4\nScore: 2.10"]
+node115 -->|5 4  to  4 5| node118
+node118["Depth: 4\nScore: 2.10"]
+node119["Depth: 4\nScore: 1.80"]
+node115 -->|7 6  to  6 5| node119
+node119["Depth: 4\nScore: 1.80"]
+node120["Depth: 4\nScore: 1.80"]
+node115 -->|3 2  to  2 1| node120
+node120["Depth: 4\nScore: 1.80"]
+node121["Depth: 4\nScore: 1.80"]
+node115 -->|3 2  to  2 3| node121
+node121["Depth: 4\nScore: 1.80"]
+node122["Depth: 4\nScore: 2.40"]
+node115 -->|6 3  to  5 2| node122
+node122["Depth: 4\nScore: 2.40"]
+node123["Depth: 4\nScore: 2.40"]
+node115 -->|6 7  to  5 6| node123
+node123["Depth: 4\nScore: 2.40"]
+node124["Depth: 3\nScore: 2.00"]
+node78 -->|0 5  to  1 6| node124
+node124["Depth: 3\nScore: 2.00"]
+node125["Depth: 4\nScore: 2.40"]
+node124 -->|7 2  to  6 1| node125
+node125["Depth: 4\nScore: 2.40"]
+node126["Depth: 4\nScore: 2.40"]
+node124 -->|5 4  to  4 3| node126
+node126["Depth: 4\nScore: 2.40"]
+node127["Depth: 4\nScore: 2.70"]
+node124 -->|5 4  to  4 5| node127
+node127["Depth: 4\nScore: 2.70"]
+node128["Depth: 4\nScore: 2.40"]
+node124 -->|7 6  to  6 5| node128
+node128["Depth: 4\nScore: 2.40"]
+node129["Depth: 4\nScore: 2.40"]
+node124 -->|3 2  to  2 1| node129
+node129["Depth: 4\nScore: 2.40"]
+node130["Depth: 4\nScore: 2.40"]
+node124 -->|3 2  to  2 3| node130
+node130["Depth: 4\nScore: 2.40"]
+node131["Depth: 4\nScore: 3.00"]
+node124 -->|6 3  to  5 2| node131
+node131["Depth: 4\nScore: 3.00"]
+node132["Depth: 4\nScore: 3.00"]
+node124 -->|6 7  to  5 6| node132
+node132["Depth: 4\nScore: 3.00"]
+node133["Depth: 3\nScore: 1.70"]
+node78 -->|0 7  to  1 6| node133
+node133["Depth: 3\nScore: 1.70"]
+node134["Depth: 4\nScore: 2.10"]
+node133 -->|7 2  to  6 1| node134
+node134["Depth: 4\nScore: 2.10"]
+node135["Depth: 4\nScore: 2.10"]
+node133 -->|5 4  to  4 3| node135
+node135["Depth: 4\nScore: 2.10"]
+node136["Depth: 4\nScore: 2.40"]
+node133 -->|5 4  to  4 5| node136
+node136["Depth: 4\nScore: 2.40"]
+node137["Depth: 4\nScore: 2.10"]
+node133 -->|7 6  to  6 5| node137
+node137["Depth: 4\nScore: 2.10"]
+node138["Depth: 4\nScore: 2.10"]
+node133 -->|3 2  to  2 1| node138
+node138["Depth: 4\nScore: 2.10"]
+node139["Depth: 4\nScore: 2.10"]
+node133 -->|3 2  to  2 3| node139
+node139["Depth: 4\nScore: 2.10"]
+node140["Depth: 4\nScore: 2.70"]
+node133 -->|6 3  to  5 2| node140
+node140["Depth: 4\nScore: 2.70"]
+node141["Depth: 4\nScore: 2.70"]
+node133 -->|6 7  to  5 6| node141
+node141["Depth: 4\nScore: 2.70"]
+node142["Depth: 3\nScore: 1.10"]
+node78 -->|4 1  to  5 2| node142
+node142["Depth: 3\nScore: 1.10"]
+node143["Depth: 4\nScore: 5.50"]
+node142 -->|6 3  to  4 1| node143
+node143["Depth: 4\nScore: 5.50"]
+node144["Depth: 3\nScore: 1.10"]
+node78 -->|2 7  to  3 6| node144
+node144["Depth: 3\nScore: 1.10"]
+node145["Depth: 4\nScore: 1.50"]
+node144 -->|7 2  to  6 1| node145
+node145["Depth: 4\nScore: 1.50"]
+node146["Depth: 4\nScore: 1.50"]
+node144 -->|5 4  to  4 3| node146
+node146["Depth: 4\nScore: 1.50"]
+node147["Depth: 4\nScore: 1.80"]
+node144 -->|5 4  to  4 5| node147
+node147["Depth: 4\nScore: 1.80"]
+node148["Depth: 4\nScore: 1.50"]
+node144 -->|7 6  to  6 5| node148
+node148["Depth: 4\nScore: 1.50"]
+node149["Depth: 4\nScore: 1.50"]
+node144 -->|3 2  to  2 1| node149
+node149["Depth: 4\nScore: 1.50"]
+node150["Depth: 4\nScore: 1.50"]
+node144 -->|3 2  to  2 3| node150
+node150["Depth: 4\nScore: 1.50"]
+node151["Depth: 4\nScore: 2.10"]
+node144 -->|6 3  to  5 2| node151
+node151["Depth: 4\nScore: 2.10"]
+node152["Depth: 4\nScore: 2.10"]
+node144 -->|6 7  to  5 6| node152
+node152["Depth: 4\nScore: 2.10"]
+node153["Depth: 2\nScore: 1.50"]
+node1 -->|6 5  to  5 6| node153
+node153["Depth: 2\nScore: 1.50"]
+node154["Depth: 3\nScore: 1.40"]
+node153 -->|0 1  to  1 0| node154
+node154["Depth: 3\nScore: 1.40"]
+node155["Depth: 4\nScore: 1.80"]
+node154 -->|7 2  to  6 1| node155
+node155["Depth: 4\nScore: 1.80"]
+node156["Depth: 4\nScore: 2.10"]
+node154 -->|5 6  to  4 5| node156
+node156["Depth: 4\nScore: 2.10"]
+node157["Depth: 4\nScore: 1.80"]
+node154 -->|5 6  to  4 7| node157
+node157["Depth: 4\nScore: 1.80"]
+node158["Depth: 4\nScore: 1.80"]
+node154 -->|7 6  to  6 5| node158
+node158["Depth: 4\nScore: 1.80"]
+node159["Depth: 4\nScore: 1.80"]
+node154 -->|3 2  to  2 1| node159
+node159["Depth: 4\nScore: 1.80"]
+node160["Depth: 4\nScore: 1.80"]
+node154 -->|3 2  to  2 3| node160
+node160["Depth: 4\nScore: 1.80"]
+node161["Depth: 4\nScore: 2.10"]
+node154 -->|6 3  to  5 2| node161
+node161["Depth: 4\nScore: 2.10"]
+node162["Depth: 4\nScore: 2.10"]
+node154 -->|6 3  to  5 4| node162
+node162["Depth: 4\nScore: 2.10"]
+node163["Depth: 3\nScore: 1.10"]
+node153 -->|0 1  to  1 2| node163
+node163["Depth: 3\nScore: 1.10"]
+node164["Depth: 4\nScore: 1.50"]
+node163 -->|7 2  to  6 1| node164
+node164["Depth: 4\nScore: 1.50"]
+node165["Depth: 4\nScore: 1.80"]
+node163 -->|5 6  to  4 5| node165
+node165["Depth: 4\nScore: 1.80"]
+node166["Depth: 4\nScore: 1.50"]
+node163 -->|5 6  to  4 7| node166
+node166["Depth: 4\nScore: 1.50"]
+node167["Depth: 4\nScore: 1.50"]
+node163 -->|7 6  to  6 5| node167
+node167["Depth: 4\nScore: 1.50"]
+node168["Depth: 4\nScore: 1.50"]
+node163 -->|3 2  to  2 1| node168
+node168["Depth: 4\nScore: 1.50"]
+node169["Depth: 4\nScore: 1.50"]
+node163 -->|3 2  to  2 3| node169
+node169["Depth: 4\nScore: 1.50"]
+node170["Depth: 4\nScore: 1.80"]
+node163 -->|6 3  to  5 2| node170
+node170["Depth: 4\nScore: 1.80"]
+node171["Depth: 4\nScore: 1.80"]
+node163 -->|6 3  to  5 4| node171
+node171["Depth: 4\nScore: 1.80"]
+node172["Depth: 3\nScore: 1.10"]
+node153 -->|2 5  to  3 4| node172
+node172["Depth: 3\nScore: 1.10"]
+node173["Depth: 4\nScore: 1.50"]
+node172 -->|7 2  to  6 1| node173
+node173["Depth: 4\nScore: 1.50"]
+node174["Depth: 4\nScore: 1.80"]
+node172 -->|5 6  to  4 5| node174
+node174["Depth: 4\nScore: 1.80"]
+node175["Depth: 4\nScore: 1.50"]
+node172 -->|5 6  to  4 7| node175
+node175["Depth: 4\nScore: 1.50"]
+node176["Depth: 4\nScore: 1.50"]
+node172 -->|7 6  to  6 5| node176
+node176["Depth: 4\nScore: 1.50"]
+node177["Depth: 4\nScore: 1.50"]
+node172 -->|3 2  to  2 1| node177
+node177["Depth: 4\nScore: 1.50"]
+node178["Depth: 4\nScore: 1.50"]
+node172 -->|3 2  to  2 3| node178
+node178["Depth: 4\nScore: 1.50"]
+node179["Depth: 4\nScore: 1.80"]
+node172 -->|6 3  to  5 2| node179
+node179["Depth: 4\nScore: 1.80"]
+node180["Depth: 4\nScore: 1.80"]
+node172 -->|6 3  to  5 4| node180
+node180["Depth: 4\nScore: 1.80"]
+node181["Depth: 3\nScore: 1.40"]
+node153 -->|2 5  to  3 6| node181
+node181["Depth: 3\nScore: 1.40"]
+node182["Depth: 4\nScore: 1.80"]
+node181 -->|7 2  to  6 1| node182
+node182["Depth: 4\nScore: 1.80"]
+node183["Depth: 4\nScore: 2.10"]
+node181 -->|5 6  to  4 5| node183
+node183["Depth: 4\nScore: 2.10"]
+node184["Depth: 4\nScore: 1.80"]
+node181 -->|5 6  to  4 7| node184
+node184["Depth: 4\nScore: 1.80"]
+node185["Depth: 4\nScore: 1.80"]
+node181 -->|7 6  to  6 5| node185
+node185["Depth: 4\nScore: 1.80"]
+node186["Depth: 4\nScore: 1.80"]
+node181 -->|3 2  to  2 1| node186
+node186["Depth: 4\nScore: 1.80"]
+node187["Depth: 4\nScore: 1.80"]
+node181 -->|3 2  to  2 3| node187
+node187["Depth: 4\nScore: 1.80"]
+node188["Depth: 4\nScore: 2.10"]
+node181 -->|6 3  to  5 2| node188
+node188["Depth: 4\nScore: 2.10"]
+node189["Depth: 4\nScore: 2.10"]
+node181 -->|6 3  to  5 4| node189
+node189["Depth: 4\nScore: 2.10"]
+node190["Depth: 3\nScore: 1.40"]
+node153 -->|0 5  to  1 4| node190
+node190["Depth: 3\nScore: 1.40"]
+node191["Depth: 4\nScore: 1.80"]
+node190 -->|7 2  to  6 1| node191
+node191["Depth: 4\nScore: 1.80"]
+node192["Depth: 4\nScore: 2.10"]
+node190 -->|5 6  to  4 5| node192
+node192["Depth: 4\nScore: 2.10"]
+node193["Depth: 4\nScore: 1.80"]
+node190 -->|5 6  to  4 7| node193
+node193["Depth: 4\nScore: 1.80"]
+node194["Depth: 4\nScore: 1.80"]
+node190 -->|7 6  to  6 5| node194
+node194["Depth: 4\nScore: 1.80"]
+node195["Depth: 4\nScore: 1.80"]
+node190 -->|3 2  to  2 1| node195
+node195["Depth: 4\nScore: 1.80"]
+node196["Depth: 4\nScore: 1.80"]
+node190 -->|3 2  to  2 3| node196
+node196["Depth: 4\nScore: 1.80"]
+node197["Depth: 4\nScore: 2.10"]
+node190 -->|6 3  to  5 2| node197
+node197["Depth: 4\nScore: 2.10"]
+node198["Depth: 4\nScore: 2.10"]
+node190 -->|6 3  to  5 4| node198
+node198["Depth: 4\nScore: 2.10"]
+node199["Depth: 3\nScore: 2.00"]
+node153 -->|0 5  to  1 6| node199
+node199["Depth: 3\nScore: 2.00"]
+node200["Depth: 4\nScore: 2.40"]
+node199 -->|7 2  to  6 1| node200
+node200["Depth: 4\nScore: 2.40"]
+node201["Depth: 4\nScore: 2.70"]
+node199 -->|5 6  to  4 5| node201
+node201["Depth: 4\nScore: 2.70"]
+node202["Depth: 4\nScore: 2.40"]
+node199 -->|5 6  to  4 7| node202
+node202["Depth: 4\nScore: 2.40"]
+node203["Depth: 4\nScore: 2.40"]
+node199 -->|7 6  to  6 5| node203
+node203["Depth: 4\nScore: 2.40"]
+node204["Depth: 4\nScore: 2.40"]
+node199 -->|3 2  to  2 1| node204
+node204["Depth: 4\nScore: 2.40"]
+node205["Depth: 4\nScore: 2.40"]
+node199 -->|3 2  to  2 3| node205
+node205["Depth: 4\nScore: 2.40"]
+node206["Depth: 4\nScore: 2.70"]
+node199 -->|6 3  to  5 2| node206
+node206["Depth: 4\nScore: 2.70"]
+node207["Depth: 4\nScore: 2.70"]
+node199 -->|6 3  to  5 4| node207
+node207["Depth: 4\nScore: 2.70"]
+node208["Depth: 3\nScore: 1.70"]
+node153 -->|0 7  to  1 6| node208
+node208["Depth: 3\nScore: 1.70"]
+node209["Depth: 4\nScore: 2.10"]
+node208 -->|7 2  to  6 1| node209
+node209["Depth: 4\nScore: 2.10"]
+node210["Depth: 4\nScore: 2.40"]
+node208 -->|5 6  to  4 5| node210
+node210["Depth: 4\nScore: 2.40"]
+node211["Depth: 4\nScore: 2.10"]
+node208 -->|5 6  to  4 7| node211
+node211["Depth: 4\nScore: 2.10"]
+node212["Depth: 4\nScore: 2.10"]
+node208 -->|7 6  to  6 5| node212
+node212["Depth: 4\nScore: 2.10"]
+node213["Depth: 4\nScore: 2.10"]
+node208 -->|3 2  to  2 1| node213
+node213["Depth: 4\nScore: 2.10"]
+node214["Depth: 4\nScore: 2.10"]
+node208 -->|3 2  to  2 3| node214
+node214["Depth: 4\nScore: 2.10"]
+node215["Depth: 4\nScore: 2.40"]
+node208 -->|6 3  to  5 2| node215
+node215["Depth: 4\nScore: 2.40"]
+node216["Depth: 4\nScore: 2.40"]
+node208 -->|6 3  to  5 4| node216
+node216["Depth: 4\nScore: 2.40"]
+node217["Depth: 3\nScore: 1.10"]
+node153 -->|4 1  to  5 2| node217
+node217["Depth: 3\nScore: 1.10"]
+node218["Depth: 4\nScore: 5.20"]
+node217 -->|6 3  to  4 1| node218
+node218["Depth: 4\nScore: 5.20"]
+node219["Depth: 3\nScore: 1.10"]
+node153 -->|2 7  to  3 6| node219
+node219["Depth: 3\nScore: 1.10"]
+node220["Depth: 4\nScore: 1.50"]
+node219 -->|7 2  to  6 1| node220
+node220["Depth: 4\nScore: 1.50"]
+node221["Depth: 4\nScore: 1.80"]
+node219 -->|5 6  to  4 5| node221
+node221["Depth: 4\nScore: 1.80"]
+node222["Depth: 4\nScore: 1.50"]
+node219 -->|5 6  to  4 7| node222
+node222["Depth: 4\nScore: 1.50"]
+node223["Depth: 4\nScore: 1.50"]
+node219 -->|7 6  to  6 5| node223
+node223["Depth: 4\nScore: 1.50"]
+node224["Depth: 4\nScore: 1.50"]
+node219 -->|3 2  to  2 1| node224
+node224["Depth: 4\nScore: 1.50"]
+node225["Depth: 4\nScore: 1.50"]
+node219 -->|3 2  to  2 3| node225
+node225["Depth: 4\nScore: 1.50"]
+node226["Depth: 4\nScore: 1.80"]
+node219 -->|6 3  to  5 2| node226
+node226["Depth: 4\nScore: 1.80"]
+node227["Depth: 4\nScore: 1.80"]
+node219 -->|6 3  to  5 4| node227
+node227["Depth: 4\nScore: 1.80"]
+node228["Depth: 2\nScore: 1.50"]
+node1 -->|3 2  to  2 1| node228
+node228["Depth: 2\nScore: 1.50"]
+node229["Depth: 3\nScore: 1.40"]
+node228 -->|0 1  to  1 0| node229
+node229["Depth: 3\nScore: 1.40"]
+node230["Depth: 4\nScore: 5.40"]
+node229 -->|5 0  to  3 2| node230
+node230["Depth: 4\nScore: 5.40"]
+node231["Depth: 3\nScore: 1.10"]
+node228 -->|0 1  to  1 2| node231
+node231["Depth: 3\nScore: 1.10"]
+node232["Depth: 4\nScore: 5.10"]
+node231 -->|5 0  to  3 2| node232
+node232["Depth: 4\nScore: 5.10"]
+node233["Depth: 4\nScore: 4.20"]
+node231 -->|2 1  to  0 3| node233
+node233["Depth: 4\nScore: 4.20"]
+node234["Depth: 3\nScore: 1.10"]
+node228 -->|2 5  to  3 4| node234
+node234["Depth: 3\nScore: 1.10"]
+node235["Depth: 4\nScore: 5.10"]
+node234 -->|5 0  to  3 2| node235
+node235["Depth: 4\nScore: 5.10"]
+node236["Depth: 3\nScore: 1.40"]
+node228 -->|2 5  to  3 6| node236
+node236["Depth: 3\nScore: 1.40"]
+node237["Depth: 4\nScore: 5.40"]
+node236 -->|5 0  to  3 2| node237
+node237["Depth: 4\nScore: 5.40"]
+node238["Depth: 3\nScore: 1.40"]
+node228 -->|0 5  to  1 4| node238
+node238["Depth: 3\nScore: 1.40"]
+node239["Depth: 4\nScore: 5.40"]
+node238 -->|5 0  to  3 2| node239
+node239["Depth: 4\nScore: 5.40"]
+node240["Depth: 3\nScore: 2.00"]
+node228 -->|0 5  to  1 6| node240
+node240["Depth: 3\nScore: 2.00"]
+node241["Depth: 4\nScore: 6.00"]
+node240 -->|5 0  to  3 2| node241
+node241["Depth: 4\nScore: 6.00"]
+node242["Depth: 3\nScore: 1.70"]
+node228 -->|0 7  to  1 6| node242
+node242["Depth: 3\nScore: 1.70"]
+node243["Depth: 4\nScore: 5.70"]
+node242 -->|5 0  to  3 2| node243
+node243["Depth: 4\nScore: 5.70"]
+node244["Depth: 3\nScore: 1.10"]
+node228 -->|4 1  to  5 2| node244
+node244["Depth: 3\nScore: 1.10"]
+node245["Depth: 4\nScore: 5.50"]
+node244 -->|6 3  to  4 1| node245
+node245["Depth: 4\nScore: 5.50"]
+node246["Depth: 3\nScore: 1.10"]
+node228 -->|2 7  to  3 6| node246
+node246["Depth: 3\nScore: 1.10"]
+node247["Depth: 4\nScore: 5.10"]
+node246 -->|5 0  to  3 2| node247
+node247["Depth: 4\nScore: 5.10"]
+node248["Depth: 2\nScore: 1.50"]
+node1 -->|3 2  to  2 3| node248
+node248["Depth: 2\nScore: 1.50"]
+node249["Depth: 3\nScore: 1.40"]
+node248 -->|0 1  to  1 0| node249
+node249["Depth: 3\nScore: 1.40"]
+node250["Depth: 4\nScore: 5.40"]
+node249 -->|5 0  to  3 2| node250
+node250["Depth: 4\nScore: 5.40"]
+node251["Depth: 3\nScore: 1.10"]
+node248 -->|0 1  to  1 2| node251
+node251["Depth: 3\nScore: 1.10"]
+node252["Depth: 4\nScore: 5.10"]
+node251 -->|5 0  to  3 2| node252
+node252["Depth: 4\nScore: 5.10"]
+node253["Depth: 4\nScore: 4.80"]
+node251 -->|2 3  to  0 1| node253
+node253["Depth: 4\nScore: 4.80"]
+node254["Depth: 3\nScore: 1.10"]
+node248 -->|2 5  to  3 4| node254
+node254["Depth: 3\nScore: 1.10"]
+node255["Depth: 4\nScore: 5.10"]
+node254 -->|5 0  to  3 2| node255
+node255["Depth: 4\nScore: 5.10"]
+node256["Depth: 3\nScore: 1.40"]
+node248 -->|2 5  to  3 6| node256
+node256["Depth: 3\nScore: 1.40"]
+node257["Depth: 4\nScore: 5.40"]
+node256 -->|5 0  to  3 2| node257
+node257["Depth: 4\nScore: 5.40"]
+node258["Depth: 3\nScore: 1.40"]
+node248 -->|0 5  to  1 4| node258
+node258["Depth: 3\nScore: 1.40"]
+node259["Depth: 4\nScore: 5.40"]
+node258 -->|5 0  to  3 2| node259
+node259["Depth: 4\nScore: 5.40"]
+node260["Depth: 4\nScore: 4.20"]
+node258 -->|2 3  to  0 5| node260
+node260["Depth: 4\nScore: 4.20"]
+node261["Depth: 3\nScore: 2.00"]
+node248 -->|0 5  to  1 6| node261
+node261["Depth: 3\nScore: 2.00"]
+node262["Depth: 4\nScore: 6.00"]
+node261 -->|5 0  to  3 2| node262
+node262["Depth: 4\nScore: 6.00"]
+node263["Depth: 3\nScore: 1.70"]
+node248 -->|0 7  to  1 6| node263
+node263["Depth: 3\nScore: 1.70"]
+node264["Depth: 4\nScore: 5.70"]
+node263 -->|5 0  to  3 2| node264
+node264["Depth: 4\nScore: 5.70"]
+node265["Depth: 3\nScore: 1.10"]
+node248 -->|4 1  to  5 2| node265
+node265["Depth: 3\nScore: 1.10"]
+node266["Depth: 4\nScore: 5.50"]
+node265 -->|6 3  to  4 1| node266
+node266["Depth: 4\nScore: 5.50"]
+node267["Depth: 3\nScore: 1.10"]
+node248 -->|2 7  to  3 6| node267
+node267["Depth: 3\nScore: 1.10"]
+node268["Depth: 4\nScore: 5.10"]
+node267 -->|5 0  to  3 2| node268
+node268["Depth: 4\nScore: 5.10"]
+node269["Depth: 2\nScore: 1.80"]
+node1 -->|6 3  to  5 2| node269
+node269["Depth: 2\nScore: 1.80"]
+node270["Depth: 3\nScore: -1.40"]
+node269 -->|4 1  to  6 3| node270
+node270["Depth: 3\nScore: -1.40"]
+node271["Depth: 4\nScore: 3.10"]
+node270 -->|7 2  to  5 4| node271
+node271["Depth: 4\nScore: 3.10"]
+node272["Depth: 2\nScore: 1.50"]
+node1 -->|6 3  to  5 4| node272
+node272["Depth: 2\nScore: 1.50"]
+node273["Depth: 3\nScore: 1.40"]
+node272 -->|0 1  to  1 0| node273
+node273["Depth: 3\nScore: 1.40"]
+node274["Depth: 4\nScore: 1.50"]
+node273 -->|7 2  to  6 1| node274
+node274["Depth: 4\nScore: 1.50"]
+node275["Depth: 4\nScore: 1.50"]
+node273 -->|7 2  to  6 3| node275
+node275["Depth: 4\nScore: 1.50"]
+node276["Depth: 4\nScore: 2.10"]
+node273 -->|6 5  to  5 6| node276
+node276["Depth: 4\nScore: 2.10"]
+node277["Depth: 4\nScore: 1.80"]
+node273 -->|3 2  to  2 1| node277
+node277["Depth: 4\nScore: 1.80"]
+node278["Depth: 4\nScore: 1.80"]
+node273 -->|3 2  to  2 3| node278
+node278["Depth: 4\nScore: 1.80"]
+node279["Depth: 4\nScore: 1.80"]
+node273 -->|5 4  to  4 3| node279
+node279["Depth: 4\nScore: 1.80"]
+node280["Depth: 4\nScore: 2.10"]
+node273 -->|5 4  to  4 5| node280
+node280["Depth: 4\nScore: 2.10"]
+node281["Depth: 4\nScore: 2.10"]
+node273 -->|6 7  to  5 6| node281
+node281["Depth: 4\nScore: 2.10"]
+node282["Depth: 3\nScore: 1.10"]
+node272 -->|0 1  to  1 2| node282
+node282["Depth: 3\nScore: 1.10"]
+node283["Depth: 4\nScore: 1.20"]
+node282 -->|7 2  to  6 1| node283
+node283["Depth: 4\nScore: 1.20"]
+node284["Depth: 4\nScore: 1.20"]
+node282 -->|7 2  to  6 3| node284
+node284["Depth: 4\nScore: 1.20"]
+node285["Depth: 4\nScore: 1.80"]
+node282 -->|6 5  to  5 6| node285
+node285["Depth: 4\nScore: 1.80"]
+node286["Depth: 4\nScore: 1.50"]
+node282 -->|3 2  to  2 1| node286
+node286["Depth: 4\nScore: 1.50"]
+node287["Depth: 4\nScore: 1.50"]
+node282 -->|3 2  to  2 3| node287
+node287["Depth: 4\nScore: 1.50"]
+node288["Depth: 4\nScore: 1.50"]
+node282 -->|5 4  to  4 3| node288
+node288["Depth: 4\nScore: 1.50"]
+node289["Depth: 4\nScore: 1.80"]
+node282 -->|5 4  to  4 5| node289
+node289["Depth: 4\nScore: 1.80"]
+node290["Depth: 4\nScore: 1.80"]
+node282 -->|6 7  to  5 6| node290
+node290["Depth: 4\nScore: 1.80"]
+node291["Depth: 3\nScore: 1.10"]
+node272 -->|2 5  to  3 4| node291
+node291["Depth: 3\nScore: 1.10"]
+node292["Depth: 4\nScore: 1.20"]
+node291 -->|7 2  to  6 1| node292
+node292["Depth: 4\nScore: 1.20"]
+node293["Depth: 4\nScore: 1.20"]
+node291 -->|7 2  to  6 3| node293
+node293["Depth: 4\nScore: 1.20"]
+node294["Depth: 4\nScore: 1.80"]
+node291 -->|6 5  to  5 6| node294
+node294["Depth: 4\nScore: 1.80"]
+node295["Depth: 4\nScore: 1.50"]
+node291 -->|3 2  to  2 1| node295
+node295["Depth: 4\nScore: 1.50"]
+node296["Depth: 4\nScore: 1.50"]
+node291 -->|3 2  to  2 3| node296
+node296["Depth: 4\nScore: 1.50"]
+node297["Depth: 4\nScore: 1.50"]
+node291 -->|5 4  to  4 3| node297
+node297["Depth: 4\nScore: 1.50"]
+node298["Depth: 4\nScore: 1.80"]
+node291 -->|5 4  to  4 5| node298
+node298["Depth: 4\nScore: 1.80"]
+node299["Depth: 4\nScore: 1.80"]
+node291 -->|6 7  to  5 6| node299
+node299["Depth: 4\nScore: 1.80"]
+node300["Depth: 3\nScore: 1.40"]
+node272 -->|2 5  to  3 6| node300
+node300["Depth: 3\nScore: 1.40"]
+node301["Depth: 4\nScore: 1.50"]
+node300 -->|7 2  to  6 1| node301
+node301["Depth: 4\nScore: 1.50"]
+node302["Depth: 4\nScore: 1.50"]
+node300 -->|7 2  to  6 3| node302
+node302["Depth: 4\nScore: 1.50"]
+node303["Depth: 4\nScore: 2.10"]
+node300 -->|6 5  to  5 6| node303
+node303["Depth: 4\nScore: 2.10"]
+node304["Depth: 4\nScore: 1.80"]
+node300 -->|3 2  to  2 1| node304
+node304["Depth: 4\nScore: 1.80"]
+node305["Depth: 4\nScore: 1.80"]
+node300 -->|3 2  to  2 3| node305
+node305["Depth: 4\nScore: 1.80"]
+node306["Depth: 4\nScore: 1.80"]
+node300 -->|5 4  to  4 3| node306
+node306["Depth: 4\nScore: 1.80"]
+node307["Depth: 4\nScore: 2.10"]
+node300 -->|5 4  to  4 5| node307
+node307["Depth: 4\nScore: 2.10"]
+node308["Depth: 4\nScore: 2.10"]
+node300 -->|6 7  to  5 6| node308
+node308["Depth: 4\nScore: 2.10"]
+node309["Depth: 3\nScore: 1.40"]
+node272 -->|0 5  to  1 4| node309
+node309["Depth: 3\nScore: 1.40"]
+node310["Depth: 4\nScore: 1.50"]
+node309 -->|7 2  to  6 1| node310
+node310["Depth: 4\nScore: 1.50"]
+node311["Depth: 4\nScore: 1.50"]
+node309 -->|7 2  to  6 3| node311
+node311["Depth: 4\nScore: 1.50"]
+node312["Depth: 4\nScore: 2.10"]
+node309 -->|6 5  to  5 6| node312
+node312["Depth: 4\nScore: 2.10"]
+node313["Depth: 4\nScore: 1.80"]
+node309 -->|3 2  to  2 1| node313
+node313["Depth: 4\nScore: 1.80"]
+node314["Depth: 4\nScore: 1.80"]
+node309 -->|3 2  to  2 3| node314
+node314["Depth: 4\nScore: 1.80"]
+node315["Depth: 4\nScore: 1.80"]
+node309 -->|5 4  to  4 3| node315
+node315["Depth: 4\nScore: 1.80"]
+node316["Depth: 4\nScore: 2.10"]
+node309 -->|5 4  to  4 5| node316
+node316["Depth: 4\nScore: 2.10"]
+node317["Depth: 4\nScore: 2.10"]
+node309 -->|6 7  to  5 6| node317
+node317["Depth: 4\nScore: 2.10"]
+node318["Depth: 3\nScore: 2.00"]
+node272 -->|0 5  to  1 6| node318
+node318["Depth: 3\nScore: 2.00"]
+node319["Depth: 4\nScore: 2.10"]
+node318 -->|7 2  to  6 1| node319
+node319["Depth: 4\nScore: 2.10"]
+node320["Depth: 4\nScore: 2.10"]
+node318 -->|7 2  to  6 3| node320
+node320["Depth: 4\nScore: 2.10"]
+node321["Depth: 4\nScore: 2.70"]
+node318 -->|6 5  to  5 6| node321
+node321["Depth: 4\nScore: 2.70"]
+node322["Depth: 4\nScore: 2.40"]
+node318 -->|3 2  to  2 1| node322
+node322["Depth: 4\nScore: 2.40"]
+node323["Depth: 4\nScore: 2.40"]
+node318 -->|3 2  to  2 3| node323
+node323["Depth: 4\nScore: 2.40"]
+node324["Depth: 4\nScore: 2.40"]
+node318 -->|5 4  to  4 3| node324
+node324["Depth: 4\nScore: 2.40"]
+node325["Depth: 4\nScore: 2.70"]
+node318 -->|5 4  to  4 5| node325
+node325["Depth: 4\nScore: 2.70"]
+node326["Depth: 4\nScore: 2.70"]
+node318 -->|6 7  to  5 6| node326
+node326["Depth: 4\nScore: 2.70"]
+node327["Depth: 3\nScore: 1.70"]
+node272 -->|0 7  to  1 6| node327
+node327["Depth: 3\nScore: 1.70"]
+node328["Depth: 4\nScore: 1.80"]
+node327 -->|7 2  to  6 1| node328
+node328["Depth: 4\nScore: 1.80"]
+node329["Depth: 4\nScore: 1.80"]
+node327 -->|7 2  to  6 3| node329
+node329["Depth: 4\nScore: 1.80"]
+node330["Depth: 4\nScore: 2.40"]
+node327 -->|6 5  to  5 6| node330
+node330["Depth: 4\nScore: 2.40"]
+node331["Depth: 4\nScore: 2.10"]
+node327 -->|3 2  to  2 1| node331
+node331["Depth: 4\nScore: 2.10"]
+node332["Depth: 4\nScore: 2.10"]
+node327 -->|3 2  to  2 3| node332
+node332["Depth: 4\nScore: 2.10"]
+node333["Depth: 4\nScore: 2.10"]
+node327 -->|5 4  to  4 3| node333
+node333["Depth: 4\nScore: 2.10"]
+node334["Depth: 4\nScore: 2.40"]
+node327 -->|5 4  to  4 5| node334
+node334["Depth: 4\nScore: 2.40"]
+node335["Depth: 4\nScore: 2.40"]
+node327 -->|6 7  to  5 6| node335
+node335["Depth: 4\nScore: 2.40"]
+node336["Depth: 3\nScore: 1.10"]
+node272 -->|4 1  to  5 2| node336
+node336["Depth: 3\nScore: 1.10"]
+node337["Depth: 4\nScore: 1.50"]
+node336 -->|5 0  to  4 1| node337
+node337["Depth: 4\nScore: 1.50"]
+node338["Depth: 4\nScore: 1.20"]
+node336 -->|7 2  to  6 1| node338
+node338["Depth: 4\nScore: 1.20"]
+node339["Depth: 4\nScore: 1.20"]
+node336 -->|7 2  to  6 3| node339
+node339["Depth: 4\nScore: 1.20"]
+node340["Depth: 4\nScore: 1.80"]
+node336 -->|6 5  to  5 6| node340
+node340["Depth: 4\nScore: 1.80"]
+node341["Depth: 4\nScore: 1.50"]
+node336 -->|3 2  to  2 1| node341
+node341["Depth: 4\nScore: 1.50"]
+node342["Depth: 4\nScore: 1.50"]
+node336 -->|3 2  to  2 3| node342
+node342["Depth: 4\nScore: 1.50"]
+node343["Depth: 4\nScore: 1.50"]
+node336 -->|5 4  to  4 3| node343
+node343["Depth: 4\nScore: 1.50"]
+node344["Depth: 4\nScore: 1.80"]
+node336 -->|5 4  to  4 5| node344
+node344["Depth: 4\nScore: 1.80"]
+node345["Depth: 4\nScore: 1.80"]
+node336 -->|6 7  to  5 6| node345
+node345["Depth: 4\nScore: 1.80"]
+node346["Depth: 3\nScore: 1.10"]
+node272 -->|2 7  to  3 6| node346
+node346["Depth: 3\nScore: 1.10"]
+node347["Depth: 4\nScore: 1.20"]
+node346 -->|7 2  to  6 1| node347
+node347["Depth: 4\nScore: 1.20"]
+node348["Depth: 4\nScore: 1.20"]
+node346 -->|7 2  to  6 3| node348
+node348["Depth: 4\nScore: 1.20"]
+node349["Depth: 4\nScore: 1.80"]
+node346 -->|6 5  to  5 6| node349
+node349["Depth: 4\nScore: 1.80"]
+node350["Depth: 4\nScore: 1.50"]
+node346 -->|3 2  to  2 1| node350
+node350["Depth: 4\nScore: 1.50"]
+node351["Depth: 4\nScore: 1.50"]
+node346 -->|3 2  to  2 3| node351
+node351["Depth: 4\nScore: 1.50"]
+node352["Depth: 4\nScore: 1.50"]
+node346 -->|5 4  to  4 3| node352
+node352["Depth: 4\nScore: 1.50"]
+node353["Depth: 4\nScore: 1.80"]
+node346 -->|5 4  to  4 5| node353
+node353["Depth: 4\nScore: 1.80"]
+node354["Depth: 4\nScore: 1.80"]
+node346 -->|6 7  to  5 6| node354
+node354["Depth: 4\nScore: 1.80"]
+node355["Depth: 2\nScore: 1.80"]
+node1 -->|6 7  to  5 6| node355
+node355["Depth: 2\nScore: 1.80"]
+node356["Depth: 3\nScore: 1.70"]
+node355 -->|0 1  to  1 0| node356
+node356["Depth: 3\nScore: 1.70"]
+node357["Depth: 4\nScore: 2.10"]
+node356 -->|7 2  to  6 1| node357
+node357["Depth: 4\nScore: 2.10"]
+node358["Depth: 4\nScore: 2.40"]
+node356 -->|6 5  to  5 4| node358
+node358["Depth: 4\nScore: 2.40"]
+node359["Depth: 4\nScore: 1.80"]
+node356 -->|7 6  to  6 7| node359
+node359["Depth: 4\nScore: 1.80"]
+node360["Depth: 4\nScore: 2.10"]
+node356 -->|3 2  to  2 1| node360
+node360["Depth: 4\nScore: 2.10"]
+node361["Depth: 4\nScore: 2.10"]
+node356 -->|3 2  to  2 3| node361
+node361["Depth: 4\nScore: 2.10"]
+node362["Depth: 4\nScore: 2.40"]
+node356 -->|6 3  to  5 2| node362
+node362["Depth: 4\nScore: 2.40"]
+node363["Depth: 4\nScore: 2.10"]
+node356 -->|6 3  to  5 4| node363
+node363["Depth: 4\nScore: 2.10"]
+node364["Depth: 4\nScore: 2.40"]
+node356 -->|5 6  to  4 5| node364
+node364["Depth: 4\nScore: 2.40"]
+node365["Depth: 4\nScore: 2.10"]
+node356 -->|5 6  to  4 7| node365
+node365["Depth: 4\nScore: 2.10"]
+node366["Depth: 3\nScore: 1.40"]
+node355 -->|0 1  to  1 2| node366
+node366["Depth: 3\nScore: 1.40"]
+node367["Depth: 4\nScore: 1.80"]
+node366 -->|7 2  to  6 1| node367
+node367["Depth: 4\nScore: 1.80"]
+node368["Depth: 4\nScore: 2.10"]
+node366 -->|6 5  to  5 4| node368
+node368["Depth: 4\nScore: 2.10"]
+node369["Depth: 4\nScore: 1.50"]
+node366 -->|7 6  to  6 7| node369
+node369["Depth: 4\nScore: 1.50"]
+node370["Depth: 4\nScore: 1.80"]
+node366 -->|3 2  to  2 1| node370
+node370["Depth: 4\nScore: 1.80"]
+node371["Depth: 4\nScore: 1.80"]
+node366 -->|3 2  to  2 3| node371
+node371["Depth: 4\nScore: 1.80"]
+node372["Depth: 4\nScore: 2.10"]
+node366 -->|6 3  to  5 2| node372
+node372["Depth: 4\nScore: 2.10"]
+node373["Depth: 4\nScore: 1.80"]
+node366 -->|6 3  to  5 4| node373
+node373["Depth: 4\nScore: 1.80"]
+node374["Depth: 4\nScore: 2.10"]
+node366 -->|5 6  to  4 5| node374
+node374["Depth: 4\nScore: 2.10"]
+node375["Depth: 4\nScore: 1.80"]
+node366 -->|5 6  to  4 7| node375
+node375["Depth: 4\nScore: 1.80"]
+node376["Depth: 3\nScore: 1.40"]
+node355 -->|2 5  to  3 4| node376
+node376["Depth: 3\nScore: 1.40"]
+node377["Depth: 4\nScore: 1.80"]
+node376 -->|7 2  to  6 1| node377
+node377["Depth: 4\nScore: 1.80"]
+node378["Depth: 4\nScore: 2.10"]
+node376 -->|6 5  to  5 4| node378
+node378["Depth: 4\nScore: 2.10"]
+node379["Depth: 4\nScore: 1.50"]
+node376 -->|7 6  to  6 7| node379
+node379["Depth: 4\nScore: 1.50"]
+node380["Depth: 4\nScore: 1.80"]
+node376 -->|3 2  to  2 1| node380
+node380["Depth: 4\nScore: 1.80"]
+node381["Depth: 4\nScore: 1.80"]
+node376 -->|3 2  to  2 3| node381
+node381["Depth: 4\nScore: 1.80"]
+node382["Depth: 4\nScore: 2.10"]
+node376 -->|6 3  to  5 2| node382
+node382["Depth: 4\nScore: 2.10"]
+node383["Depth: 4\nScore: 1.80"]
+node376 -->|6 3  to  5 4| node383
+node383["Depth: 4\nScore: 1.80"]
+node384["Depth: 4\nScore: 2.10"]
+node376 -->|5 6  to  4 5| node384
+node384["Depth: 4\nScore: 2.10"]
+node385["Depth: 4\nScore: 1.80"]
+node376 -->|5 6  to  4 7| node385
+node385["Depth: 4\nScore: 1.80"]
+node386["Depth: 3\nScore: 1.70"]
+node355 -->|2 5  to  3 6| node386
+node386["Depth: 3\nScore: 1.70"]
+node387["Depth: 4\nScore: 2.10"]
+node386 -->|7 2  to  6 1| node387
+node387["Depth: 4\nScore: 2.10"]
+node388["Depth: 4\nScore: 2.40"]
+node386 -->|6 5  to  5 4| node388
+node388["Depth: 4\nScore: 2.40"]
+node389["Depth: 4\nScore: 1.80"]
+node386 -->|7 6  to  6 7| node389
+node389["Depth: 4\nScore: 1.80"]
+node390["Depth: 4\nScore: 2.10"]
+node386 -->|3 2  to  2 1| node390
+node390["Depth: 4\nScore: 2.10"]
+node391["Depth: 4\nScore: 2.10"]
+node386 -->|3 2  to  2 3| node391
+node391["Depth: 4\nScore: 2.10"]
+node392["Depth: 4\nScore: 2.40"]
+node386 -->|6 3  to  5 2| node392
+node392["Depth: 4\nScore: 2.40"]
+node393["Depth: 4\nScore: 2.10"]
+node386 -->|6 3  to  5 4| node393
+node393["Depth: 4\nScore: 2.10"]
+node394["Depth: 4\nScore: 2.40"]
+node386 -->|5 6  to  4 5| node394
+node394["Depth: 4\nScore: 2.40"]
+node395["Depth: 4\nScore: 2.10"]
+node386 -->|5 6  to  4 7| node395
+node395["Depth: 4\nScore: 2.10"]
+node396["Depth: 3\nScore: 1.70"]
+node355 -->|0 5  to  1 4| node396
+node396["Depth: 3\nScore: 1.70"]
+node397["Depth: 4\nScore: 2.10"]
+node396 -->|7 2  to  6 1| node397
+node397["Depth: 4\nScore: 2.10"]
+node398["Depth: 4\nScore: 2.40"]
+node396 -->|6 5  to  5 4| node398
+node398["Depth: 4\nScore: 2.40"]
+node399["Depth: 4\nScore: 1.80"]
+node396 -->|7 6  to  6 7| node399
+node399["Depth: 4\nScore: 1.80"]
+node400["Depth: 4\nScore: 2.10"]
+node396 -->|3 2  to  2 1| node400
+node400["Depth: 4\nScore: 2.10"]
+node401["Depth: 4\nScore: 2.10"]
+node396 -->|3 2  to  2 3| node401
+node401["Depth: 4\nScore: 2.10"]
+node402["Depth: 4\nScore: 2.40"]
+node396 -->|6 3  to  5 2| node402
+node402["Depth: 4\nScore: 2.40"]
+node403["Depth: 4\nScore: 2.10"]
+node396 -->|6 3  to  5 4| node403
+node403["Depth: 4\nScore: 2.10"]
+node404["Depth: 4\nScore: 2.40"]
+node396 -->|5 6  to  4 5| node404
+node404["Depth: 4\nScore: 2.40"]
+node405["Depth: 4\nScore: 2.10"]
+node396 -->|5 6  to  4 7| node405
+node405["Depth: 4\nScore: 2.10"]
+node406["Depth: 3\nScore: 2.30"]
+node355 -->|0 5  to  1 6| node406
+node406["Depth: 3\nScore: 2.30"]
+node407["Depth: 4\nScore: 2.70"]
+node406 -->|7 2  to  6 1| node407
+node407["Depth: 4\nScore: 2.70"]
+node408["Depth: 4\nScore: 3.00"]
+node406 -->|6 5  to  5 4| node408
+node408["Depth: 4\nScore: 3.00"]
+node409["Depth: 4\nScore: 2.40"]
+node406 -->|7 6  to  6 7| node409
+node409["Depth: 4\nScore: 2.40"]
+node410["Depth: 4\nScore: 2.70"]
+node406 -->|3 2  to  2 1| node410
+node410["Depth: 4\nScore: 2.70"]
+node411["Depth: 4\nScore: 2.70"]
+node406 -->|3 2  to  2 3| node411
+node411["Depth: 4\nScore: 2.70"]
+node412["Depth: 4\nScore: 3.00"]
+node406 -->|6 3  to  5 2| node412
+node412["Depth: 4\nScore: 3.00"]
+node413["Depth: 4\nScore: 2.70"]
+node406 -->|6 3  to  5 4| node413
+node413["Depth: 4\nScore: 2.70"]
+node414["Depth: 4\nScore: 3.00"]
+node406 -->|5 6  to  4 5| node414
+node414["Depth: 4\nScore: 3.00"]
+node415["Depth: 4\nScore: 2.70"]
+node406 -->|5 6  to  4 7| node415
+node415["Depth: 4\nScore: 2.70"]
+node416["Depth: 3\nScore: 2.00"]
+node355 -->|0 7  to  1 6| node416
+node416["Depth: 3\nScore: 2.00"]
+node417["Depth: 4\nScore: 2.40"]
+node416 -->|7 2  to  6 1| node417
+node417["Depth: 4\nScore: 2.40"]
+node418["Depth: 4\nScore: 2.70"]
+node416 -->|6 5  to  5 4| node418
+node418["Depth: 4\nScore: 2.70"]
+node419["Depth: 4\nScore: 2.10"]
+node416 -->|7 6  to  6 7| node419
+node419["Depth: 4\nScore: 2.10"]
+node420["Depth: 4\nScore: 2.40"]
+node416 -->|3 2  to  2 1| node420
+node420["Depth: 4\nScore: 2.40"]
+node421["Depth: 4\nScore: 2.40"]
+node416 -->|3 2  to  2 3| node421
+node421["Depth: 4\nScore: 2.40"]
+node422["Depth: 4\nScore: 2.70"]
+node416 -->|6 3  to  5 2| node422
+node422["Depth: 4\nScore: 2.70"]
+node423["Depth: 4\nScore: 2.40"]
+node416 -->|6 3  to  5 4| node423
+node423["Depth: 4\nScore: 2.40"]
+node424["Depth: 4\nScore: 2.70"]
+node416 -->|5 6  to  4 5| node424
+node424["Depth: 4\nScore: 2.70"]
+node425["Depth: 4\nScore: 2.40"]
+node416 -->|5 6  to  4 7| node425
+node425["Depth: 4\nScore: 2.40"]
+node426["Depth: 3\nScore: 1.40"]
+node355 -->|4 1  to  5 2| node426
+node426["Depth: 3\nScore: 1.40"]
+node427["Depth: 4\nScore: 5.50"]
+node426 -->|6 3  to  4 1| node427
+node427["Depth: 4\nScore: 5.50"]
+node428["Depth: 3\nScore: 1.40"]
+node355 -->|2 7  to  3 6| node428
+node428["Depth: 3\nScore: 1.40"]
+node429["Depth: 4\nScore: 1.80"]
+node428 -->|7 2  to  6 1| node429
+node429["Depth: 4\nScore: 1.80"]
+node430["Depth: 4\nScore: 2.10"]
+node428 -->|6 5  to  5 4| node430
+node430["Depth: 4\nScore: 2.10"]
+node431["Depth: 4\nScore: 1.50"]
+node428 -->|7 6  to  6 7| node431
+node431["Depth: 4\nScore: 1.50"]
+node432["Depth: 4\nScore: 1.80"]
+node428 -->|3 2  to  2 1| node432
+node432["Depth: 4\nScore: 1.80"]
+node433["Depth: 4\nScore: 1.80"]
+node428 -->|3 2  to  2 3| node433
+node433["Depth: 4\nScore: 1.80"]
+node434["Depth: 4\nScore: 2.10"]
+node428 -->|6 3  to  5 2| node434
+node434["Depth: 4\nScore: 2.10"]
+node435["Depth: 4\nScore: 1.80"]
+node428 -->|6 3  to  5 4| node435
+node435["Depth: 4\nScore: 1.80"]
+node436["Depth: 4\nScore: 2.10"]
+node428 -->|5 6  to  4 5| node436
+node436["Depth: 4\nScore: 2.10"]
+node437["Depth: 4\nScore: 1.80"]
+node428 -->|5 6  to  4 7| node437
+node437["Depth: 4\nScore: 1.80"]
+node438["Depth: 1\nScore: 1.10"]
+node0 -->|0 5  to  2 3| node438
+node438["Depth: 1\nScore: 1.10"]
+node439["Depth: 2\nScore: 4.30"]
+node438 -->|3 2  to  1 4| node439
+node439["Depth: 2\nScore: 4.30"]
+node440["Depth: 3\nScore: -0.50"]
+node439 -->|0 3  to  2 5| node440
+node440["Depth: 3\nScore: -0.50"]
+node441["Depth: 4\nScore: 3.80"]
+node440 -->|5 0  to  3 2| node441
+node441["Depth: 4\nScore: 3.80"]

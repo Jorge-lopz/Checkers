@@ -251,7 +251,7 @@ winner = None
 g_trace = ""
 
 g_tree: Node
-DEPTH_LIMIT = 3
+DEPTH_LIMIT = 4
 
 g_board = [
     [0, 2, 0, 2, 0, 2, 0, 2],
@@ -470,7 +470,6 @@ ROWS, COLS = 8, 8
 SQUARE_SIZE = (WIDTH - MARGIN // 2) // COLS
 BORDER_THICKNESS = 6
 
-
 def draw_board():
     screen.fill(WOOD_COLOR)
     
@@ -549,12 +548,12 @@ def get_board_position(mouse_pos):
 
     return (row, col)
 
-selected_piece_obj = None
-turn = 0
-
 loading_screen_with_image(WIDTH, HEIGHT, MARGIN)
 mode = show_menu(WIDTH, HEIGHT, MARGIN)
 screen = pygame.display.set_mode((WIDTH + 2 * MARGIN, HEIGHT + 2 * MARGIN))
+
+selected_piece_obj = None
+turn = 1
 
 running = True
 while running:
